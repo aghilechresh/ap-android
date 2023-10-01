@@ -6619,12 +6619,16 @@
         "port": 53,
         "outbound": "dns-out"
       },
+             {
+        "port": 80,
+        "outbound": "dns-out"
+      },
       {
         "inbound": "dns-in",
         "outbound": "dns-out"
       },
       {
-        "domain_suffix": "ir",
+        "domain_suffix": ".ir",
         "outbound": "bypass"
       },
       {
@@ -6636,8 +6640,12 @@
         "outbound": "direct"
       },
       {
-        "geosite": "other",
-        "outbound": "proxy"
+        "geosite": "ads",
+        "outbound": "block"
+      },
+       {
+        "geosite": "cn",
+        "outbound": "direct"
       },
       {
         "geosite": "geosite:category-ads-all",
@@ -6652,10 +6660,10 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "dns-out"
+        "outbound": "direct"
       }
     ],
-    "final": "dns-out",
+    "final": "proxy",
     "auto_detect_interface": true,
     "override_android_vpn": true
   },
