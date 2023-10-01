@@ -6652,10 +6652,10 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "proxy"
+        "outbound": "dns-out"
       }
     ],
-    "final": "proxy",
+    "final": "dns-out",
     "auto_detect_interface": true,
     "override_android_vpn": true
   },
