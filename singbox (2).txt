@@ -177,14 +177,14 @@
             {
                 "protocol": "quic",
                 "port": [443],
-                "outbound": "dns-in"
+                "outbound": "direct"
             },
             {
                 "ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
                 ],
-                "outbound": "dns-in",
+                "outbound": "direct",
                 "source_ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
