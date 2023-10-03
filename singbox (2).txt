@@ -161,7 +161,7 @@
                     "dns-in"
                 ],
                 "outbound": "dns-out"
-            },
+0            },
             {
                 "domain_suffix": [
                     "ir"
@@ -177,14 +177,14 @@
             {
                 "protocol": "quic",
                 "port": [443],
-                "outbound": "proxy"
+                "outbound": "dns-in"
             },
             {
                 "ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
                 ],
-                "outbound": "proxy",
+                "outbound": "dns-in",
                 "source_ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
