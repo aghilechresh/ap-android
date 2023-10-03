@@ -19,7 +19,7 @@
     "dns": {
         "servers": [
             {
-                "address": "tcp://1.1.1.1",
+                "address": "https:\/\/dns.bitdefender.net\/dns-query",
                 "address_resolver": "dns-local",
                 "strategy": "prefer_ipv4",
                 "tag": "dns-remote",
@@ -177,14 +177,14 @@
             {
                 "protocol": "quic",
                 "port": [443],
-                "outbound": "block"
+                "outbound": "proxy"
             },
             {
                 "ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
                 ],
-                "outbound": "block",
+                "outbound": "proxy",
                 "source_ip_cidr": [
                     "224.0.0.0\/3",
                     "ff00::\/8"
