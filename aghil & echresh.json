@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "tcp://8.8.8.8",
+        "address": "localhost",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
