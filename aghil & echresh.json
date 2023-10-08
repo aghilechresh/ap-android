@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "tcp://8.8.8.8",
+        "address": "tcp://127.0.0.1",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -56,7 +56,7 @@
       },
       {
         "domain_suffix": [
-          "GitHub.com"
+          "api.github.com"
         ],
         "server": "dns-direct"
       },
@@ -309,13 +309,13 @@
       },
       {
         "domain_suffix": [
-          "github"
+          "github.com"
         ],
         "outbound": "dns-out"
       },
       {
         "domain_suffix": [
-          "irancell"
+          "irancell.ir"
         ],
         "outbound": "dns-out"
       },
