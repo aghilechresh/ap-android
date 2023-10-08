@@ -272,12 +272,6 @@
         ]
       },
       {
-        "outbound": "dns-out",
-        "port": [
-          853
-        ]
-      },
-      {
         "inbound": [
           "dns-in"
         ],
@@ -293,19 +287,19 @@
         "domain_suffix": [
           "cloudflare.com"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "domain_suffix": [
           "github.com"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "domain_suffix": [
           "irancell.ir"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "geoip": [
@@ -317,14 +311,14 @@
         "geosite": [
           "geosite:category-ads-all"
         ],
-        "outbound": "dns-out"
+        "outbound": "block"
       },
       {
         "ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "dns-out",
+        "outbound": "block",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
