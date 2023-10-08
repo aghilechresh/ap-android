@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "localhost",
+        "address": "local",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -44,19 +44,7 @@
     "rules": [
       {
         "domain_suffix": [
-          ".ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "domain_suffix": [
-          "cloudflare.com"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "domain_suffix": [
-          "api.github.com"
+          ".cn"
         ],
         "server": "dns-direct"
       },
