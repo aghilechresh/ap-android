@@ -44,7 +44,7 @@
     "rules": [
       {
         "domain_suffix": [
-          ".cn"
+          "ir"
         ],
         "server": "dns-direct"
       },
@@ -57,6 +57,24 @@
         "outbound": "any",
         "server": "dns-direct",
         "rewrite_ttl": 20
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "outbound": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          "cloudflare.com"
+        ],
+        "outbound": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          "github.com"
+        ],
+        "outbound": "dns-direct"
       }
     ],
     "reverse_mapping": true,
