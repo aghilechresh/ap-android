@@ -60,12 +60,6 @@
       },
       {
         "domain_suffix": [
-          ".ir"
-        ],
-        "outbound": "dns-direct"
-      },
-      {
-        "domain_suffix": [
           "cloudflare.com"
         ],
         "outbound": "dns-direct"
