@@ -49,6 +49,18 @@
         "server": "dns-direct"
       },
       {
+        "domain_suffix": [
+          "cloudflare.com"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          "GitHub.com"
+        ],
+        "server": "dns-direct"
+      },
+      {
         "outbound": "direct",
         "server": "dns-direct",
         "rewrite_ttl": 20
@@ -269,6 +281,12 @@
         "outbound": "dns-out",
         "port": [
           53
+        ]
+      },
+      {
+        "outbound": "dns-out",
+        "port": [
+          853
         ]
       },
       {
