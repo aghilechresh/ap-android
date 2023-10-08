@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "local",
+        "address": "https://223.5.5.5/dns-query",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -57,18 +57,6 @@
         "outbound": "any",
         "server": "dns-direct",
         "rewrite_ttl": 20
-      },
-      {
-        "domain_suffix": [
-          "cloudflare.com"
-        ],
-        "outbound": "dns-direct"
-      },
-      {
-        "domain_suffix": [
-          "github.com"
-        ],
-        "outbound": "dns-direct"
       }
     ],
     "reverse_mapping": true,
