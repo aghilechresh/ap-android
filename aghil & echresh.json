@@ -19,7 +19,7 @@
   "dns": {
     "servers": [
       {
-        "address": "local",
+        "address": "223.5.5.5",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
