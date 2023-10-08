@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "https://dns.dnshome.de/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -287,7 +287,7 @@
         "domain_suffix": [
           "cloudflare.com"
         ],
-        "outbound": "bypass"
+        "outbound": "dns-out"
       },
       {
         "geoip": [
@@ -299,14 +299,14 @@
         "geosite": [
           "geosite:category-ads-all"
         ],
-        "outbound": "block"
+        "outbound": "dns-out"
       },
       {
         "ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "proxy",
+        "outbound": "dns-out",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
