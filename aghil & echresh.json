@@ -308,6 +308,18 @@
         "outbound": "dns-out"
       },
       {
+        "domain_suffix": [
+          "github"
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "domain_suffix": [
+          "irancell"
+        ],
+        "outbound": "dns-out"
+      },
+      {
         "geoip": [
           "ir"
         ],
