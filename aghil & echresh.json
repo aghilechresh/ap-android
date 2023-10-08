@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "local",
+        "address": "udp://local",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -305,19 +305,19 @@
         "domain_suffix": [
           "cloudflare.com"
         ],
-        "outbound": "dns-out"
+        "outbound": "direct"
       },
       {
         "domain_suffix": [
           "github.com"
         ],
-        "outbound": "dns-out"
+        "outbound": "direct"
       },
       {
         "domain_suffix": [
           "irancell.ir"
         ],
-        "outbound": "dns-out"
+        "outbound": "direct"
       },
       {
         "geoip": [
