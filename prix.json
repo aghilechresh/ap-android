@@ -1,0 +1,30 @@
+{
+  "packet_encoding": "xudp",
+  "server": "104.31.16.109",
+  "server_port": 443,
+  "tls": {
+    "alpn": [
+      "http/1.1"
+    ],
+    "enabled": true,
+    "insecure": false,
+    "server_name": "russ.cypherpunks.asia",
+    "utls": {
+      "enabled": true,
+      "fingerprint": "chrome"
+    }
+  },
+  "transport": {
+    "early_data_header_name": "Sec-WebSocket-Protocol",
+    "headers": {
+      "Host": "russ.cypherpunks.asia"
+    },
+    "max_early_data": 2048,
+    "path": "/cypherpunks",
+    "type": "ws"
+  },
+  "uuid": "ece7a2bc-41cd-47cb-a7dd-d78791866f1f",
+  "type": "vless",
+  "domain_strategy": "",
+  "tag": "proxy"
+}
