@@ -1,18 +1,18 @@
 {
   "log": {
-    "level": "info"
+    "level": "warn"
   },
   "dns": {
     "servers": [
       {
         "tag": "dns-remote",
-        "address": "8.8.8.8",
+        "address": "local",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only"
       },
       {
         "tag": "dns-direct",
-        "address": "loca",
+        "address": "8.8.8.8:53",
         "address_resolver": "dns-local",
         "strategy": "ipv4_only",
         "detour": "direct"
@@ -76,30 +76,18 @@
   ],
   "outbounds": [
     {
-      "tag": "proxy",
-      "type": "selector",
-      "outbounds": [
-        "URL-TEST | رایگان",
-        "رایگان | TUIC | @iP_CF | NL🇳🇱 | 0️⃣1️⃣",
-        "رایگان | TUIC | @iP_CF | PL🇵🇱 | 0️⃣2️⃣",
-        "رایگان | TUIC | @iP_CF | NL🇳🇱 | 0️⃣3️⃣",
-        "DE🇩🇪 | 0️⃣1️⃣",
-        "SE🇸🇪 | 0️⃣1️⃣",
-        "US🇺🇸 | 0️⃣2️⃣"
-      ]
-    },
-    {
-      "tag": "URL-TEST | رایگان",
+      "tag": "اتوماتیک",
       "type": "urltest",
       "outbounds": [
         "رایگان | TUIC | @iP_CF | NL🇳🇱 | 0️⃣1️⃣",
         "رایگان | TUIC | @iP_CF | PL🇵🇱 | 0️⃣2️⃣",
         "رایگان | TUIC | @iP_CF | NL🇳🇱 | 0️⃣3️⃣",
         "DE🇩🇪 | 0️⃣1️⃣",
-        "SE🇸🇪 | 0️⃣1️⃣"
+        "SE🇸🇪 | 0️⃣1️⃣",
+        "US🇺🇸 | 0️⃣2️⃣"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "50ms",
+      "interval": "10m",
       "tolerance": 50
     },
     {
@@ -298,10 +286,16 @@
           "ads"
         ],
         "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "outbound": "bypass"
       }
     ],
     "auto_detect_interface": true,
-    "final": "proxy"
+    "final": "اتوماتیک"
   },
   "experimental": {
     "clash_api": {
