@@ -99,7 +99,7 @@
         "SE🇸🇪 | 0️⃣1️⃣"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "5m",
+      "interval": "50ms",
       "tolerance": 50
     },
     {
@@ -284,6 +284,18 @@
         "ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
+        ],
+        "outbound": "block"
+      },
+      {
+        "geoip": [
+          "ir"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          "ads"
         ],
         "outbound": "block"
       }
