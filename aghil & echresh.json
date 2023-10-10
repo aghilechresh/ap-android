@@ -19,7 +19,7 @@
   "dns": {
     "servers": [
       {
-        "address": "https://dns.bitdefender.net/dns-query",
+        "address": "https://193.110.81.0/dns-query",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
@@ -44,7 +44,8 @@
     "rules": [
       {
         "domain_suffix": [
-          ".ir"
+          ".ir",
+          "Cloudflare.com"
         ],
         "server": "dns-direct"
       },
