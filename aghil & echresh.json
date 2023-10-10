@@ -1,8 +1,8 @@
-//profile-title: base64:VFZDIHwgUkVBTElUWQ==
-//profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//support-url: https://t.me/v2raycollector
-//profile-web-page-url: https://github.com/yebekhe/TelegramV2rayCollector
+/profile-title: base64:VFZDIHwgUkVBTElUWQ==
+/profile-update-interval: 1
+/subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
+/support-url: https://t.me/v2raycollector
+/profile-web-page-url: https://github.com/yebekhe/TelegramV2rayCollector
 
 {
     "log": {
@@ -14,7 +14,7 @@
         "clash_api": {
             "external_controller": "0.0.0.0:9090",
             "external_ui": "yacd",
-            "external_ui_download_url": "https://github.com//MetaCubeX//Yacd-meta//archive//gh-pages.zip",
+            "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
             "external_ui_download_detour": "direct",
             "secret": "",
             "default_mode": "rule",
@@ -25,13 +25,13 @@
     "dns": {
         "servers": [
             {
-                "address": "https://dns.bitdefender.net//dns-query",
+                "address": "https://dns.bitdefender.net/dns-query",
                 "address_resolver": "dns-direct",
                 "strategy": "ipv4_only",
                 "tag": "dns-remote"
             },
             {
-                "address": "https://dns.bitdefender.net//dns-query",
+                "address": "https://dns.bitdefender.net/dns-query",
                 "address_resolver": "dns-local",
                 "detour": "direct",
                 "strategy": "ipv4_only",
@@ -43,7 +43,7 @@
                 "tag": "dns-local"
             },
             {
-                "address": "rcode://success",
+                "address": "rcode:/success",
                 "tag": "dns-block"
             }
         ],
@@ -83,7 +83,7 @@
             "tag": "tun-in",
             "domain_strategy": "",
             "interface_name": "tun0",
-            "inet4_address": "172.19.0.1//30",
+            "inet4_address": "172.19.0.1/30",
             "mtu": 9000,
             "auto_route": true,
             "strict_route": true,
@@ -7249,11 +7249,11 @@
         "override_android_vpn": true,
         "final": "proxy",
         "geoip": {
-            "download_url": "https://github.com//chocolate4u//Iran-sing-box-rules//releases//latest//download//geoip.db",
+            "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geoip.db",
             "download_detour": "direct"
         },
         "geosite": {
-            "download_url": "https://github.com//chocolate4u//Iran-sing-box-rules//releases//latest//download//geosite.db",
+            "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geosite.db",
             "download_detour": "direct"
         },
         "rules": [
@@ -7301,13 +7301,13 @@
             },
             {
                 "ip_cidr": [
-                    "224.0.0.0//3",
-                    "ff00:://8"
+                    "224.0.0.0/3",
+                    "ff00::/8"
                 ],
                 "outbound": "block",
                 "source_ip_cidr": [
-                    "224.0.0.0//3",
-                    "ff00:://8"
+                    "224.0.0.0/3",
+                    "ff00::/8"
                 ]
             }
         ]
