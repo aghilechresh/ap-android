@@ -7199,7 +7199,19 @@
       },
       {
         "domain_suffix": [
-          "ir"
+          "cloudflare.com"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          "appcenter.ms"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          "GitHub.com"
         ],
         "outbound": "bypass"
       },
@@ -7211,13 +7223,13 @@
       },
       {
         "geosite": [
-          "ir"
+          "cn"
         ],
         "outbound": "direct"
       },
       {
         "geosite": [
-          "other"
+          "ir"
         ],
         "outbound": "direct"
       },
