@@ -19,13 +19,13 @@
   "dns": {
     "servers": [
       {
-        "address": "https://awan.ftp.sh/unblocked",
+        "address": "https://dns.bitdefender.net/dns-query",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
       },
       {
-        "address": "https://dns.bebasid.com/dns-query",
+        "address": "https://dns.bitdefender.net/dns-query",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -44,8 +44,7 @@
     "rules": [
       {
         "domain_suffix": [
-          ".ir",
-          "Cloudflare.com"
+          ".ir"
         ],
         "server": "dns-direct"
       },
@@ -78,7 +77,7 @@
       "tag": "tun-in",
       "domain_strategy": "",
       "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30"
+      "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
@@ -7199,19 +7198,7 @@
       },
       {
         "domain_suffix": [
-          "cloudflare.com"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "domain_suffix": [
-          "appcenter.ms"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "domain_suffix": [
-          "GitHub.com"
+          "ir"
         ],
         "outbound": "bypass"
       },
@@ -7223,13 +7210,13 @@
       },
       {
         "geosite": [
-          "cn"
+          "ir"
         ],
         "outbound": "direct"
       },
       {
         "geosite": [
-          "ir"
+          "other"
         ],
         "outbound": "direct"
       },
