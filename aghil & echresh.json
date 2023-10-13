@@ -25,7 +25,7 @@
         "tag": "dns-remote"
       },
       {
-        "address": "local",
+        "address": "https://dns.brahma.world/dns-query",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
