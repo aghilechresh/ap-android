@@ -19,7 +19,7 @@
   "dns": {
     "servers": [
       {
-        "address": "dns",
+        "address": "77.88.8.8",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
@@ -32,7 +32,7 @@
         "tag": "dns-direct"
       },
       {
-        "address": "local",
+        "address": "any",
         "detour": "direct",
         "tag": "dns-local"
       },
@@ -49,7 +49,7 @@
         "server": "dns-direct"
       },
       {
-        "outbound": "direct",
+        "outbound": "local",
         "server": "dns-direct",
         "rewrite_ttl": 20
       },
@@ -331,7 +331,7 @@
         "رایگان | SS | @bright_vpn | GB🇬🇧 | 0️⃣2️⃣ | 229"
       ],
       "url": "https://detectportal.firefox.com/success.txt",
-      "interval": "20m",
+      "interval": "2m",
       "tolerance": 50
     },
     {
