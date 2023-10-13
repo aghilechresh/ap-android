@@ -19,13 +19,13 @@
   "dns": {
     "servers": [
       {
-        "address": "https://dns.brahma.world/dns-query",
+        "address": "https://dns.5ososea.com/dns-query",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
       },
       {
-        "address": "https://dns.brahma.world/dns-query",
+        "address": "local",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
