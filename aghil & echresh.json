@@ -19,20 +19,20 @@
   "dns": {
     "servers": [
       {
-        "address": "77.88.8.8",
+        "address": "tcp://1.1.1.1",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
       },
       {
-        "address": "local",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
         "tag": "dns-direct"
       },
       {
-        "address": "any",
+        "address": "local",
         "detour": "direct",
         "tag": "dns-local"
       },
@@ -43,19 +43,13 @@
     ],
     "rules": [
       {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
         "outbound": "local",
         "server": "dns-direct",
         "rewrite_ttl": 20
       },
       {
         "outbound": "any",
-        "server": "dns-direct",
+        "server": "dns-out",
         "rewrite_ttl": 20
       }
     ],
@@ -6977,14 +6971,6 @@
     "auto_detect_interface": true,
     "override_android_vpn": true,
     "final": "URL-TEST",
-    "geoip": {
-      "download_url": "https://github.com/MiSaturo/sing-box-geoip-ir/releases/latest/download/geoip.db",
-      "download_detour": "direct"
-    },
-    "geosite": {
-      "download_url": "https://github.com/MasterKia/iran-hosted-domains/releases/latest/download/iran-geosite.db",
-      "download_detour": "direct"
-    },
     "rules": [
       {
         "outbound": "dns-out",
@@ -7000,7 +6986,13 @@
       },
       {
         "domain_suffix": [
-          "ir"
+          ".ir"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          "GitHub.com"
         ],
         "outbound": "bypass"
       },
@@ -7008,7 +7000,7 @@
         "geoip": [
           "ir"
         ],
-        "outbound": "bypass"
+        "outbound": "direct"
       },
       {
         "geosite": [
@@ -7021,7 +7013,7 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "bypass",
+        "outbound": "dns-out",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
@@ -7031,7 +7023,7 @@
         "geosite": [
           "category-ads-all"
         ],
-        "outbound": "block"
+        "outbound": "dns-out"
       }
     ]
   }
