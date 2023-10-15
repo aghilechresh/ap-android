@@ -1,0 +1,1803 @@
+{
+  "dns": {
+    "disableFallbackIfMatch": true,
+    "hosts": {},
+    "servers": [
+      {
+        "address": "tcp://1.1.1.1",
+        "concurrency": true
+      },
+      {
+        "address": "localhost",
+        "concurrency": true,
+        "domains": [
+          "full:codepen.io",
+          "full:kr-cdn-6273819.starnetcn.top",
+          "full:auth0.openai.com",
+          "full:cc1.clare88.tk",
+          "full:edeen.makeup",
+          "full:discord.com",
+          "full:qmyuj-1087-tr-0.d-kcd.tuil.xyz",
+          "full:cloudconeaaa.gorgorchicken.one",
+          "full:lax.asoul-diana.xyz",
+          "full:cloudconebbb.gorgorchicken.one",
+          "full:octavi.cfd",
+          "full:colonelcy.aurorainiceland.com",
+          "full:hrgdvpn.flycdnedc55.vip",
+          "full:odelia.autos",
+          "full:laravel.com",
+          "full:tokyo.clare88.tk",
+          "full:ns1.v2-vip.fun",
+          "full:alvvin.click",
+          "full:api.jquery.com",
+          "full:waynn.makeup",
+          "full:ophelia.mom"
+        ],
+        "skipFallback": true
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "port": 3080,
+      "protocol": "socks",
+      "settings": {
+        "auth": "noauth",
+        "udp": true
+      },
+      "sniffing": {
+        "destOverride": [
+          "http",
+          "tls",
+          "quic"
+        ],
+        "enabled": true,
+        "routeOnly": true
+      },
+      "tag": "socks"
+    },
+    {
+      "listen": "127.0.0.1",
+      "port": 6451,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "1.0.0.1",
+        "network": "tcp,udp",
+        "port": 53
+      },
+      "tag": "dns-in"
+    }
+  ],
+  "log": {
+    "loglevel": "error"
+  },
+  "multiObservatory": {
+    "observers": [
+      {
+        "settings": {
+          "enableConcurrency": true,
+          "probeInterval": "20s",
+          "probeUrl": "https://detectportal.firefox.com/success.txt",
+          "subjectSelector": [
+            "proxy-global-461",
+            "proxy-global-462",
+            "proxy-global-463",
+            "proxy-global-420",
+            "proxy-global-464",
+            "proxy-global-381",
+            "proxy-global-383",
+            "proxy-global-460",
+            "proxy-global-469",
+            "proxy-global-426",
+            "proxy-global-427",
+            "proxy-global-388",
+            "proxy-global-465",
+            "proxy-global-466",
+            "proxy-global-423",
+            "proxy-global-467",
+            "proxy-global-347",
+            "proxy-global-468",
+            "proxy-global-429",
+            "proxy-global-395",
+            "proxy-global-430",
+            "proxy-global-470",
+            "proxy-global-394",
+            "proxy-global-471",
+            "proxy-global-436",
+            "proxy-global-434",
+            "proxy-global-440",
+            "proxy-global-361",
+            "proxy-global-403",
+            "proxy-global-447",
+            "proxy-global-448",
+            "proxy-global-449",
+            "proxy-global-443",
+            "proxy-global-400",
+            "proxy-global-444",
+            "proxy-global-401",
+            "proxy-global-445",
+            "proxy-global-446",
+            "proxy-global-408",
+            "proxy-global-450",
+            "proxy-global-451",
+            "proxy-global-452",
+            "proxy-global-453",
+            "proxy-global-371",
+            "proxy-global-414",
+            "proxy-global-458",
+            "proxy-global-459",
+            "proxy-global-416",
+            "proxy-global-410",
+            "proxy-global-454",
+            "proxy-global-411",
+            "proxy-global-455",
+            "proxy-global-379",
+            "proxy-global-456",
+            "proxy-global-457",
+            "proxy-global-419"
+          ]
+        },
+        "tag": "observer-proxy"
+      }
+    ]
+  },
+  "outbounds": [
+    {
+      "protocol": "loopback",
+      "settings": {
+        "inboundTag": "socks"
+      }
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "discord.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "b3a21def-5fcc-47a8-a6a0-a34e29d5288a",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sand.blanku.me"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sand.blanku.me"
+          },
+          "path": "/wss51068"
+        }
+      },
+      "tag": "proxy-global-347"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "laravel.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/octavi.cfd:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-361"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "codepen.io",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/octavi.cfd:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-371"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "api.jquery.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/oliv.beauty:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-379"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "ophelia.mom",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "ophelia.mom"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "ophelia.mom"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-381"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "212.113.106.243",
+            "method": "chacha20-ietf-poly1305",
+            "password": "P2zxXPewlV3BlfqqYiSthvtLc",
+            "port": 12949
+          }
+        ]
+      },
+      "tag": "proxy-global-383"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "78.153.139.98",
+            "method": "chacha20-ietf-poly1305",
+            "password": "bpRogmcSxC4NrYG6BcZH2R",
+            "port": 1792
+          }
+        ]
+      },
+      "tag": "proxy-global-388"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "180.149.44.120",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-394"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "185.164.35.9",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-395"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "190.120.230.9",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-400"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "190.120.231.45",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-401"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "213.169.137.221",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-403"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "77.72.5.113",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989,
+            "uot": true
+          }
+        ]
+      },
+      "tag": "proxy-global-408"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "170.80.111.5",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-410"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "46.183.184.60",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-411"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "193.182.144.183",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-414"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "37.235.55.21",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-416"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "37.235.49.162",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-419"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "62.12.116.66",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-420"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "192.121.87.147",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-423"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "123.253.34.235",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-426"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "185.255.123.90",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-427"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "138.186.142.4",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-429"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "190.120.229.28",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-430"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "179.27.200.28",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-434"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "41.203.4.34",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-436"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "129.80.185.15",
+            "port": 32733,
+            "users": [
+              {
+                "id": "fb9da0cf-5f31-47e7-f7ad-1270173faab1",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {},
+          "path": "/fb9da0cf"
+        }
+      },
+      "tag": "proxy-global-440"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "odelia.autos",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {},
+        "wsSettings": {
+          "headers": {},
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-443"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "ophelia.mom",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "ophelia.mom"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "ophelia.mom"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-444"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "laravel.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/octavi.cfd:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-445"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "alvvin.click",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "alvvin.click"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "alvvin.click"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-446"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "api.jquery.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/oliv.beauty:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-447"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.31.16.120",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "edeen.makeup"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "edeen.makeup"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-448"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "waynn.makeup",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {},
+        "wsSettings": {
+          "headers": {},
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-449"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "octavi.cfd",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "octavi.cfd"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "octavi.cfd"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-450"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "codepen.io",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/octavi.cfd:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-451"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "146.56.174.31",
+            "port": 8080,
+            "users": [
+              {
+                "id": "c2eb5ff8-508d-4100-e0ca-9739f4d1c52c",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {},
+          "path": "/tg@herhero6"
+        }
+      },
+      "tag": "proxy-global-452"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "107.167.16.85",
+            "port": 443,
+            "users": [
+              {
+                "id": "7640a1e7-9701-428e-a4b2-19b3e7dd6f9f",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "www.51109057.xyz"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "www.51109057.xyz"
+          },
+          "path": "/path/080822272914"
+        }
+      },
+      "tag": "proxy-global-453"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "trojan_sing",
+      "settings": {
+        "address": "qmyuj-1087-tr-0.d-kcd.tuil.xyz",
+        "password": "PJUKhmVpDDqtAvMHDvmMpoQYChiuwjgv",
+        "port": 889,
+        "serverName": "cdn.cjhh.lol"
+      },
+      "tag": "proxy-global-454"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "trojan_sing",
+      "settings": {
+        "address": "tokyo.clare88.tk",
+        "password": "3pfvcVO2H7",
+        "port": 43986
+      },
+      "tag": "proxy-global-455"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.22.1.126",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/octavi.cfd:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-456"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "158.101.7.8",
+            "port": 80,
+            "users": [
+              {
+                "id": "95b45c49-f5c0-4959-bb64-2b8fbc4a869c",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {},
+          "path": "/"
+        }
+      },
+      "tag": "proxy-global-457"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "188.114.97.1",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "odelia.autos"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "odelia.autos"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-458"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.18.212.12",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/oliv.beauty:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-459"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "ns1.v2-vip.fun",
+            "port": 8880,
+            "users": [
+              {
+                "id": "617c9bc4-4116-41c6-99e0-ace49a38fcdb",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "fr7.tehme100.fun"
+          },
+          "path": "/Jnv8ViZOUVgijjOh0p5uGjHnXIiY"
+        }
+      },
+      "tag": "proxy-global-460"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cc1.clare88.tk",
+            "port": 12653,
+            "users": [
+              {
+                "id": "fce96161-0c58-4ba9-8430-660d84083888",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tcpSettings": {},
+        "tlsSettings": {}
+      },
+      "tag": "proxy-global-461"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "edeen.makeup",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "edeen.makeup"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "edeen.makeup"
+          },
+          "path": "linkvws"
+        }
+      },
+      "tag": "proxy-global-462"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "auth0.openai.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "03fcc618-b93d-6796-6aed-8a38c975d581",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "sub.yifenjichang.top"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "sub.yifenjichang.top"
+          },
+          "path": "/odelia.autos:443/linkvws"
+        }
+      },
+      "tag": "proxy-global-463"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "104.21.36.26",
+            "port": 8443,
+            "users": [
+              {
+                "id": "aa0c4744-9568-4bee-a08b-73668a9b2a42",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "cloudconebbb.gorgorchicken.one"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "cloudconebbb.gorgorchicken.one"
+          },
+          "path": "/cloudconebbb"
+        }
+      },
+      "tag": "proxy-global-464"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "lax.asoul-diana.xyz",
+            "port": 443,
+            "users": [
+              {
+                "id": "5f726fe3-d82e-4da5-a711-8af0cbb2b682",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "lax.asoul-diana.xyz"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "lax.asoul-diana.xyz"
+          },
+          "path": "/acetaffy"
+        }
+      },
+      "tag": "proxy-global-465"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cloudconebbb.gorgorchicken.one",
+            "port": 8443,
+            "users": [
+              {
+                "id": "aa0c4744-9568-4bee-a08b-73668a9b2a42",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "cloudconebbb.gorgorchicken.one"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "cloudconebbb.gorgorchicken.one"
+          },
+          "path": "/cloudconebbb"
+        }
+      },
+      "tag": "proxy-global-466"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "cloudconeaaa.gorgorchicken.one",
+            "port": 8443,
+            "users": [
+              {
+                "id": "1cec1ebc-b489-4769-f2d9-e079b5832a60",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "cloudconeaaa.gorgorchicken.one"
+        },
+        "wsSettings": {
+          "headers": {
+            "Host": "cloudconeaaa.gorgorchicken.one"
+          },
+          "path": "/cloudconeaaa"
+        }
+      },
+      "tag": "proxy-global-467"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "hrgdvpn.flycdnedc55.vip",
+            "port": 80,
+            "users": [
+              {
+                "id": "00a1da14-d55f-5f75-e346-79b985e1a723",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "hrgdvpn.flycdnedc55.vip"
+          },
+          "path": "/opt/video/images"
+        }
+      },
+      "tag": "proxy-global-468"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "colonelcy.aurorainiceland.com",
+            "port": 443,
+            "users": [
+              {
+                "encryption": "none",
+                "id": "a3f8cad2-e83b-4429-a290-373bec463c7e"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "colonelcy.aurorainiceland.com"
+        },
+        "wsSettings": {
+          "headers": {},
+          "path": "/nimws"
+        }
+      },
+      "tag": "proxy-global-469"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "mux": {
+        "concurrency": 8,
+        "enabled": true
+      },
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "kr-cdn-6273819.starnetcn.top",
+            "port": 31235,
+            "users": [
+              {
+                "id": "8e73f50a-35cd-4235-9c18-a3e061e7bc9f",
+                "security": "auto"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "headers": {
+            "Host": "jxhoisldy718922.starnetcn.top"
+          },
+          "path": "/315d825893fc34aca0231ab967157986"
+        }
+      },
+      "tag": "proxy-global-470"
+    },
+    {
+      "domainStrategy": "PreferIPv4",
+      "protocol": "shadowsocks",
+      "settings": {
+        "servers": [
+          {
+            "address": "121.127.46.147",
+            "method": "aes-256-cfb",
+            "password": "f8f7aCzcPKbsF8p3",
+            "port": 989
+          }
+        ]
+      },
+      "tag": "proxy-global-471"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "direct"
+    },
+    {
+      "protocol": "freedom",
+      "tag": "bypass"
+    },
+    {
+      "protocol": "blackhole",
+      "tag": "block"
+    },
+    {
+      "protocol": "dns",
+      "settings": {
+        "address": "1.1.1.1",
+        "network": "tcp",
+        "userLevel": 1
+      },
+      "tag": "dns-out"
+    }
+  ],
+  "ping": {
+    "disableIPv6": false,
+    "protocol": "unprivileged"
+  },
+  "policy": {
+    "levels": {
+      "1": {
+        "connIdle": 30
+      }
+    },
+    "system": {
+      "statsOutboundDownlink": true,
+      "statsOutboundUplink": true
+    }
+  },
+  "routing": {
+    "balancers": [
+      {
+        "selector": [
+          "proxy-global-347",
+          "proxy-global-361",
+          "proxy-global-371",
+          "proxy-global-379",
+          "proxy-global-381",
+          "proxy-global-383",
+          "proxy-global-388",
+          "proxy-global-394",
+          "proxy-global-395",
+          "proxy-global-400",
+          "proxy-global-401",
+          "proxy-global-403",
+          "proxy-global-408",
+          "proxy-global-410",
+          "proxy-global-411",
+          "proxy-global-414",
+          "proxy-global-416",
+          "proxy-global-419",
+          "proxy-global-420",
+          "proxy-global-423",
+          "proxy-global-426",
+          "proxy-global-427",
+          "proxy-global-429",
+          "proxy-global-430",
+          "proxy-global-434",
+          "proxy-global-436",
+          "proxy-global-440",
+          "proxy-global-443",
+          "proxy-global-444",
+          "proxy-global-445",
+          "proxy-global-446",
+          "proxy-global-447",
+          "proxy-global-448",
+          "proxy-global-449",
+          "proxy-global-450",
+          "proxy-global-451",
+          "proxy-global-452",
+          "proxy-global-453",
+          "proxy-global-454",
+          "proxy-global-455",
+          "proxy-global-456",
+          "proxy-global-457",
+          "proxy-global-458",
+          "proxy-global-459",
+          "proxy-global-460",
+          "proxy-global-461",
+          "proxy-global-462",
+          "proxy-global-463",
+          "proxy-global-464",
+          "proxy-global-465",
+          "proxy-global-466",
+          "proxy-global-467",
+          "proxy-global-468",
+          "proxy-global-469",
+          "proxy-global-470",
+          "proxy-global-471"
+        ],
+        "strategy": {
+          "type": "random"
+        },
+        "tag": "balancer-proxy"
+      }
+    ],
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "inboundTag": [
+          "dns-in"
+        ],
+        "outboundTag": "dns-out",
+        "type": "field"
+      },
+      {
+        "outboundTag": "dns-out",
+        "protocol": [
+          "dns"
+        ],
+        "type": "field"
+      },
+      {
+        "ip": [
+          "158.101.7.8",
+          "212.113.106.243",
+          "185.164.35.9",
+          "213.169.137.221",
+          "104.18.212.12",
+          "104.21.36.26",
+          "78.153.139.98",
+          "77.72.5.113",
+          "193.182.144.183",
+          "190.120.229.28",
+          "41.203.4.34",
+          "129.80.185.15",
+          "192.121.87.147",
+          "185.255.123.90",
+          "123.253.34.235",
+          "37.235.49.162",
+          "62.12.116.66",
+          "190.120.231.45",
+          "107.167.16.85",
+          "121.127.46.147",
+          "104.31.16.120",
+          "170.80.111.5",
+          "146.56.174.31",
+          "104.22.1.126",
+          "46.183.184.60",
+          "37.235.55.21",
+          "188.114.97.1",
+          "180.149.44.120",
+          "179.27.200.28",
+          "138.186.142.4",
+          "190.120.230.9"
+        ],
+        "outboundTag": "direct",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "geosite:category-ads-all"
+        ],
+        "outboundTag": "block",
+        "type": "field"
+      },
+      {
+        "domain": [
+          ".ir"
+        ],
+        "outboundTag": "bypass",
+        "type": "field"
+      },
+      {
+        "domain": [
+          "domain:cloudflare.com"
+        ],
+        "outboundTag": "bypass",
+        "type": "field"
+      },
+      {
+        "network": "udp",
+        "outboundTag": "bypass",
+        "port": "53",
+        "type": "field"
+      },
+      {
+        "balancerTag": "balancer-proxy",
+        "inboundTag": [
+          "socks"
+        ],
+        "type": "field"
+      }
+    ]
+  },
+  "stats": {}
+}
