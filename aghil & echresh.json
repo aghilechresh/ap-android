@@ -1,34 +1,26 @@
 {
-  "log": {
-    "disabled": false,
-    "level": "fatal",
-    "timestamp": true
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "yacd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "secret": "",
-      "default_mode": "rule",
-      "store_selected": true,
-      "cache_file": "clash.db"
-    }
-  },
   "dns": {
+    "independent_cache": true,
+    "rules": [
+      {
+        "domain": [
+          "dns.bitdefender.net"
+        ],
+        "server": "dns-direct"
+      }
+    ],
     "servers": [
       {
-        "address": "https://8.8.8.8/dns-query",
+        "address": "https:\/\/dns.bitdefender.net\/dns-query",
         "address_resolver": "dns-direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-remote"
       },
       {
         "address": "local",
         "address_resolver": "dns-local",
         "detour": "direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-direct"
       },
       {
@@ -37,31 +29,17 @@
         "tag": "dns-local"
       },
       {
-        "address": "rcode://success",
+        "address": "rcode:\/\/success",
         "tag": "dns-block"
       }
-    ],
-    "rules": [
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "outbound": "direct",
-        "server": "dns-direct",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "dns-direct",
-        "rewrite_ttl": 20
-      }
-    ],
-    "reverse_mapping": true,
-    "strategy": "ipv4_only",
-    "independent_cache": true
+    ]
+  },
+  "experimental": {
+    "clash_api": {
+      "cache_file": "..\/cache\/clash.db",
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "..\/files\/yacd"
+    }
   },
   "inbounds": [
     {
@@ -73,11 +51,21 @@
       "type": "direct"
     },
     {
+      "domain_strategy": "prefer_ipv4",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "tag": "mixed-in",
+      "type": "mixed"
+    },
+    {
       "type": "tun",
       "tag": "tun-in",
-      "domain_strategy": "",
-      "interface_name": "tun0",
-      "inet4_address": "10.0.0.100/14",
+      "domain_strategy": "prefer_ipv4",
+      "interface_name": "tun",
+      "inet4_address": "100.19.0.0\/23",
+      "inet6_address": "da26:2626::1\/126",
       "mtu": 1300,
       "auto_route": true,
       "strict_route": true,
@@ -85,37 +73,71 @@
       "endpoint_independent_nat": true,
       "sniff": true,
       "sniff_override_destination": true
-    },
-    {
-      "domain_strategy": "",
-      "listen": "0.0.0.0",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "tag": "mixed-in",
-      "type": "mixed"
     }
   ],
+  "log": {
+    "level": "warn"
+  },
   "outbounds": [
     {
-      "tag": "proxy",
-      "type": "selector",
-      "outbounds": [
-        "URL-TEST",
-        "direct"
-      ]
+      "method": "aes-256-cfb",
+      "password": "f8f7aCzcPKbsF8p3",
+      "server": "121.127.46.147",
+      "server_port": 989,
+      "type": "shadowsocks",
+      "domain_strategy": "",
+      "tag": "proxy1"
     },
     {
-      "tag": "URL-TEST",
-      "type": "urltest",
-      "outbounds": [
-        "proxy1",
-        "proxy2",
-        "proxy3"
-      ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
+      "method": "chacha20-ietf-poly1305",
+      "password": "P2zxXPewlV3BlfqqYiSthvtLc",
+      "server": "212.113.106.243",
+      "server_port": 12949,
+      "type": "shadowsocks",
+      "domain_strategy": "",
+      "tag": "g-2828"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "138.68.136.50",
+      "server_port": 65500,
+      "transport": {
+        "headers": {},
+        "path": "\/",
+        "type": "ws"
+      },
+      "uuid": "6b2e381c-8214-47c7-aa73-54c803ef1d22",
+      "type": "vmess",
+      "domain_strategy": "",
+      "tag": "g-2934"
+    },
+    {
+      "password": "telegram-id-directvpn",
+      "server": "35.181.201.98",
+      "server_port": 22222,
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "trj.rollingnext.co.uk"
+      },
+      "type": "trojan",
+      "domain_strategy": "",
+      "tag": "g-3014"
+    },
+    {
+      "password": "telegram-id-directvpn",
+      "server": "15.237.86.179",
+      "server_port": 22222,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "trj.rollingnext.co.uk"
+      },
+      "type": "trojan",
+      "domain_strategy": "",
+      "tag": "g-3028"
     },
     {
       "tag": "direct",
@@ -134,55 +156,29 @@
       "type": "dns"
     },
     {
-      "alter_id": 0,
-      "packet_encoding": "",
-      "security": "auto",
-      "server": "45.88.3.133",
-      "server_port": 55524,
-      "uuid": "9722a20e-b242-4243-818a-6e1191f995ce",
-      "type": "vmess",
-      "domain_strategy": "",
-      "tag": "proxy1"
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": [
+        "اتوماتیک"
+      ]
     },
     {
-      "password": "telegram-id-directvpn",
-      "server": "18.157.49.196",
-      "server_port": 22222,
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "trj.rollingnext.co.uk"
-      },
-      "type": "trojan",
-      "domain_strategy": "",
-      "tag": "proxy2"
-    },
-    {
-      "password": "telegram-id-directvpn",
-      "server": "3.65.214.223",
-      "server_port": 22222,
-      "tls": {
-        "enabled": true,
-        "insecure": false,
-        "server_name": "trj.rollingnext.co.uk"
-      },
-      "type": "trojan",
-      "domain_strategy": "",
-      "tag": "proxy3"
+      "type": "urltest",
+      "tag": "اتوماتیک",
+      "outbounds": [
+        "proxy1",
+        "g-2828",
+        "g-2934",
+        "g-3014",
+        "g-3028"
+      ],
+      "url": "https:\/\/www.gstatic.com\/generate_204",
+      "interval": "20s",
+      "tolerance": 50
     }
   ],
   "route": {
     "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "proxy",
-    "geoip": {
-      "download_url": "https://github.com/MiSaturo/sing-box-geoip-ir/releases/latest/download/geoip.db",
-      "download_detour": "direct"
-    },
-    "geosite": {
-      "download_url": "https://github.com/MasterKia/iran-hosted-domains/releases/latest/download/iran-geosite.db",
-      "download_detour": "direct"
-    },
     "rules": [
       {
         "outbound": "dns-out",
@@ -197,14 +193,24 @@
         "outbound": "dns-out"
       },
       {
-        "domain_suffix": [
-          "ir"
+        "network": [
+          "udp"
         ],
-        "outbound": "bypass"
+        "outbound": "g-2828",
+        "port": [
+          443
+        ],
+        "port_range": []
       },
       {
-        "domain_suffix": [
-          "cloudflare.com"
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "block"
+      },
+      {
+        "geosite": [
+          "ir"
         ],
         "outbound": "bypass"
       },
@@ -215,40 +221,54 @@
         "outbound": "bypass"
       },
       {
-        "geosite": [
-          "ir"
+        "network": [
+          "tcp"
         ],
-        "outbound": "direct"
+        "outbound": "g-3014",
+        "port": [
+          443
+        ],
+        "port_range": []
       },
       {
-        "geosite": [
-          "other"
+        "network": [
+          "udp"
         ],
-        "outbound": "direct"
+        "outbound": "g-2934",
+        "port": [
+          443
+        ],
+        "port_range": []
       },
       {
-        "geosite": [
-          "ads"
+        "network": [
+          "tcp"
         ],
-        "outbound": "block"
+        "outbound": "g-3028",
+        "port": [
+          443
+        ],
+        "port_range": []
+      },
+      {
+        "geoip": [
+          "private"
+        ],
+        "outbound": "bypass"
       },
       {
         "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
+          "224.0.0.0\/3",
+          "ff00::\/8"
         ],
-        "outbound": "block",
+        "outbound": "bypass",
         "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
+          "224.0.0.0\/3",
+          "ff00::\/8"
         ]
-      },
-      {
-        "inbound": [
-          "bypass"
-        ],
-        "outbound": "direct"
       }
-    ]
+    ],
+    "final": "proxy",
+    "override_android_vpn": true
   }
 }
