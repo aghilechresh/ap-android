@@ -1,4 +1,617 @@
-{"log":{"disabled":false,"level":"fatal","timestamp":true},"experimental":{"clash_api":{"external_controller":"0.0.0.0:9090","external_ui":"yacd","external_ui_download_url":"https:\/\/github.com\/MetaCubeX\/Yacd-meta\/archive\/gh-pages.zip","external_ui_download_detour":"direct","secret":"","default_mode":"rule","store_selected":true,"cache_file":"clash.db"}},"dns":{"servers":[{"address":"https:\/\/dns.bitdefender.net\/dns-query","address_resolver":"dns-direct","strategy":"ipv4_only","tag":"dns-remote"},{"address":"https:\/\/dns.bitdefender.net\/dns-query","address_resolver":"dns-local","detour":"direct","strategy":"ipv4_only","tag":"dns-direct"},{"address":"local","detour":"direct","tag":"dns-local"},{"address":"rcode:\/\/success","tag":"dns-block"}],"rules":[{"domain_suffix":[".ir"],"server":"dns-direct"},{"outbound":"direct","server":"dns-direct","rewrite_ttl":20},{"outbound":"any","server":"dns-direct","rewrite_ttl":20}],"reverse_mapping":true,"strategy":"ipv4_only","independent_cache":true},"outbounds":[{"alter_id":1,"packet_encoding":"","security":"auto","server":"odelia.autos","server_port":443,"tls":{"enabled":true,"insecure":false},"transport":{"headers":{},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🏁ZZ_122"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"ophelia.mom","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ophelia.mom"},"transport":{"headers":{"Host":"ophelia.mom"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇨🇦CA_124"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"alvvin.click","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"alvvin.click"},"transport":{"headers":{"Host":"alvvin.click"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_128"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.31.16.120","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"waynn.makeup","server_port":443,"tls":{"enabled":true,"insecure":false},"transport":{"headers":{},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_135"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"octavi.cfd","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_130"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"188.114.97.1","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"odelia.autos"},"transport":{"headers":{"Host":"odelia.autos"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cc1.clare88.tk","server_port":12653,"tls":{"enabled":true,"insecure":false},"uuid":"fce96161-0c58-4ba9-8430-660d84083888","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-1"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"edeen.makeup","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-2"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.21.36.26","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconebbb.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconebbb.gorgorchicken.one"},"path":"\/cloudconebbb","type":"ws"},"uuid":"aa0c4744-9568-4bee-a08b-73668a9b2a42","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-3"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cloudconebbb.gorgorchicken.one","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconebbb.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconebbb.gorgorchicken.one"},"path":"\/cloudconebbb","type":"ws"},"uuid":"aa0c4744-9568-4bee-a08b-73668a9b2a42","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-4"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cloudconeaaa.gorgorchicken.one","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconeaaa.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconeaaa.gorgorchicken.one"},"path":"\/cloudconeaaa","type":"ws"},"uuid":"1cec1ebc-b489-4769-f2d9-e079b5832a60","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-5"},{"method":"aes-256-cfb","password":"f8f7aCzcPKbsF8p3","server":"121.127.46.147","server_port":989,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"🇦🇫"},{"method":"chacha20-ietf-poly1305","password":"P2zxXPewlV3BlfqqYiSthvtLc","server":"212.113.106.243","server_port":12949,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"Russia"},{"method":"chacha20-ietf-poly1305","password":"TrikGtY68Jn10BwegTed","server":"195.123.238.229","server_port":51348,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"Singapore"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"83.229.70.215","server_port":13337,"tls":{"enabled":true,"insecure":false,"server_name":"ta-2.trollfunny.net"},"transport":{"headers":{},"path":"\/","type":"ws"},"uuid":"bdd22841-c4d2-4aa8-acf2-95aa9125f159","type":"vmess","domain_strategy":"ipv4_only","tag":"Israel"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"45.76.29.246","server_port":80,"transport":{"headers":{"Host":"45.76.29.246"},"path":"\/","type":"ws"},"uuid":"c7c51373-5a83-484d-c21d-ac71e45001f1","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-1"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"104.21.31.183","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-2"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"168.75.76.226","server_port":20492,"uuid":"259e1c70-fa0f-4759-b959-1e5630eac8de","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-3"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"138.68.136.50","server_port":65500,"transport":{"headers":{},"path":"\/","type":"ws"},"uuid":"6b2e381c-8214-47c7-aa73-54c803ef1d22","type":"vmess","domain_strategy":"ipv4_only","tag":"United Kingdom"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.31.16.58","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-4"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.17.77.94","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-5"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"172.67.142.191","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-6"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"discord.gg","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-7"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"188.114.99.29","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"Netherlands"},{"password":"bf432b0411","server":"103.106.228.223","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"jp1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"India"},{"password":"fMucnQTndf","server":"no.08.ijg.cc","server_port":443,"tls":{"enabled":true,"insecure":false},"type":"trojan","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_244"},{"password":"9Mdw86d7Cz","server":"132.145.208.20","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"no.09.ijg.cc"},"type":"trojan","domain_strategy":"ipv4_only","tag":"United+States"},{"password":"telegram-id-directvpn","server":"51.20.39.88","server_port":22222,"tls":{"enabled":true,"insecure":false,"server_name":"trj.rollingnext.co.uk"},"type":"trojan","domain_strategy":"ipv4_only","tag":"France"},{"password":"a77ad20a55","server":"91.209.70.106","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ru1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"Belize"},{"password":"fMucnQTndf","server":"129.213.63.5","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"no.08.ijg.cc"},"type":"trojan","domain_strategy":"ipv4_only","tag":"United+States-1"},{"password":"a77ad20a55","server":"ru1.connecton.surf","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ru1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"Belize-1"},{"password":"9Mdw86d7Cz","server":"no.09.ijg.cc","server_port":443,"tls":{"enabled":true,"insecure":false},"type":"trojan","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_1941"},{"packet_encoding":"","server":"45.158.15.229","server_port":443,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"QgAUsi01XEhi-JNPbc8bjqygkUhRnckMtd8jfLPdZGA","short_id":"97053b46"},"server_name":"greenpepper.ir","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw","type":"grpc"},"uuid":"cc909282-2203-446d-90a1-ea77e77da2b7","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣"},{"packet_encoding":"","server":"94.228.169.211","server_port":24508,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"TZD5MwFUnrd33HVHFWMrdwWcbLQAICwGSeov26rtkwM","short_id":"fb637b21"},"server_name":"aws.amazon.com","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"","type":"grpc"},"uuid":"9593382e-625c-47f0-adb1-00a5becf02a1","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣"},{"packet_encoding":"","server":"128.140.3.97","server_port":443,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"Si9Y64G6B5t6XsvnbD_aIPtJlpeUhW7I7lz0e6q5Umk","short_id":"29fe176c"},"server_name":"www.SpeedTest.Net","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"","type":"grpc"},"uuid":"---Telgram-Parsashonam---","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣"},{"tag":"direct","type":"direct"},{"tag":"bypass","type":"direct"},{"tag":"block","type":"block"},{"tag":"dns-out","type":"dns"},{"tag":"proxy","type":"selector","outbounds":["URL-TEST"]},{"tag":"URL-TEST","type":"urltest","url":"https:\/\/www.gstatic.com\/generate_204","interval":"3m","tolerance":50,"outbounds":["Relay_🇺🇸US-🇺🇸US_244","United+States","France","Belize","United+States-1","Belize-1","Relay_🇺🇸US-🇺🇸US_1941","رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣","رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣","رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣","Relay_🇺🇸US-🏁ZZ_122","Relay_🇺🇸US-🇨🇦CA_124","Relay_🇺🇸US-🇺🇸US_128","United States","Relay_🇺🇸US-🇺🇸US_135","Relay_🇺🇸US-🇺🇸US_130","v2cross.com","v2cross.com-1","v2cross.com-2","v2cross.com-3","v2cross.com-4","v2cross.com-5","🇦🇫","Russia","Singapore","Israel","United States-1","United States-2","United States-3","United Kingdom","United States-4","United States-5","United States-6","United States-7","Netherlands","India"]}],"route":{"auto_detect_interface":true,"override_android_vpn":true,"final":"proxy","geoip":{"download_url":"https:\/\/github.com\/MiSaturo\/sing-box-geoip-ir\/releases\/latest\/download\/geoip.db","download_detour":"direct"},"geosite":{"download_url":"https:\/\/github.com\/MasterKia\/iran-hosted-domains\/releases\/latest\/download\/iran-geosite.db","download_detour":"direct"},"rules":[{"outbound":"dns-out","port":[53]},{"inbound":["dns-in"],"outbound":"dns-out"},{"domain_suffix":["ir"],"outbound":"bypass"},{"geoip":["ir"],"outbound":"bypass"},{"geosite":["ir"],"outbound":"direct"},{"geosite":["other"],"outbound":"direct"},{"geosite":["ads"],"outbound":"block"},{"ip_cidr":["224.0.0.0\/3","ff00::\/8"],"outbound":"block","source_ip_cidr":["224.0.0.0\/3","ff00::\/8"]}]},"inbounds":[{"listen":"0.0.0.0","listen_port":6450,"override_address":"8.8.8.8","override_port":53,"tag":"dns-in","type":"direct"},{"domain_strategy":"prefer_ipv4","listen":"0.0.0.0","listen_port":2080,"sniff":true,"sniff_override_destination":true,"tag":"mixed-in","type":"mixed"},{"type":"tun","tag":"tun-in","domain_strategy":"prefer_ipv4","interface_name":"tun","inet4_address":"172.19.0.1\/28","inet6_address":"da26:2626::1\/126","mtu":1300,"auto_route":true,"strict_route":true,"stack":"system","endpoint_independent_nat":true,"sniff":true,"sniff_override_destination":true}]}port": 443,
+{
+  "log": {
+    "disabled": false,
+    "level": "fatal",
+    "timestamp": true
+  },
+  "experimental": {
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "yacd",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "secret": "",
+      "default_mode": "rule",
+      "store_selected": true,
+      "cache_file": "clash.db"
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "address": "https://dns.bitdefender.net/dns-query",
+        "address_resolver": "dns-direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-remote"
+      },
+      {
+        "address": "https://dns.bitdefender.net/dns-query",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-direct"
+      },
+      {
+        "address": "local",
+        "detour": "direct",
+        "tag": "dns-local"
+      },
+      {
+        "address": "rcode://success",
+        "tag": "dns-block"
+      }
+    ],
+    "rules": [
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "outbound": "direct",
+        "server": "dns-direct",
+        "rewrite_ttl": 20
+      },
+      {
+        "outbound": "any",
+        "server": "dns-direct",
+        "rewrite_ttl": 20
+      }
+    ],
+    "reverse_mapping": true,
+    "strategy": "ipv4_only",
+    "independent_cache": true
+  },
+  "outbounds": [
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "odelia.autos",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      },
+      "transport": {
+        "headers": {},
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🏁ZZ_122"
+    },
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "ophelia.mom",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ophelia.mom"
+      },
+      "transport": {
+        "headers": {
+          "Host": "ophelia.mom"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇨🇦CA_124"
+    },
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "alvvin.click",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "alvvin.click"
+      },
+      "transport": {
+        "headers": {
+          "Host": "alvvin.click"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇺🇸US_128"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "104.31.16.120",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "edeen.makeup"
+      },
+      "transport": {
+        "headers": {
+          "Host": "edeen.makeup"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "waynn.makeup",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      },
+      "transport": {
+        "headers": {},
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇺🇸US_135"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "octavi.cfd",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "octavi.cfd"
+      },
+      "transport": {
+        "headers": {
+          "Host": "octavi.cfd"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇺🇸US_130"
+    },
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "188.114.97.1",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "odelia.autos"
+      },
+      "transport": {
+        "headers": {
+          "Host": "odelia.autos"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "cc1.clare88.tk",
+      "server_port": 12653,
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      },
+      "uuid": "fce96161-0c58-4ba9-8430-660d84083888",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com-1"
+    },
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "edeen.makeup",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "edeen.makeup"
+      },
+      "transport": {
+        "headers": {
+          "Host": "edeen.makeup"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com-2"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "104.21.36.26",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cloudconebbb.gorgorchicken.one"
+      },
+      "transport": {
+        "headers": {
+          "Host": "cloudconebbb.gorgorchicken.one"
+        },
+        "path": "/cloudconebbb",
+        "type": "ws"
+      },
+      "uuid": "aa0c4744-9568-4bee-a08b-73668a9b2a42",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com-3"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "cloudconebbb.gorgorchicken.one",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cloudconebbb.gorgorchicken.one"
+      },
+      "transport": {
+        "headers": {
+          "Host": "cloudconebbb.gorgorchicken.one"
+        },
+        "path": "/cloudconebbb",
+        "type": "ws"
+      },
+      "uuid": "aa0c4744-9568-4bee-a08b-73668a9b2a42",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com-4"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "cloudconeaaa.gorgorchicken.one",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cloudconeaaa.gorgorchicken.one"
+      },
+      "transport": {
+        "headers": {
+          "Host": "cloudconeaaa.gorgorchicken.one"
+        },
+        "path": "/cloudconeaaa",
+        "type": "ws"
+      },
+      "uuid": "1cec1ebc-b489-4769-f2d9-e079b5832a60",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "v2cross.com-5"
+    },
+    {
+      "method": "aes-256-cfb",
+      "password": "f8f7aCzcPKbsF8p3",
+      "server": "121.127.46.147",
+      "server_port": 989,
+      "type": "shadowsocks",
+      "domain_strategy": "ipv4_only",
+      "tag": "🇦🇫"
+    },
+    {
+      "method": "chacha20-ietf-poly1305",
+      "password": "P2zxXPewlV3BlfqqYiSthvtLc",
+      "server": "212.113.106.243",
+      "server_port": 12949,
+      "type": "shadowsocks",
+      "domain_strategy": "ipv4_only",
+      "tag": "Russia"
+    },
+    {
+      "method": "chacha20-ietf-poly1305",
+      "password": "TrikGtY68Jn10BwegTed",
+      "server": "195.123.238.229",
+      "server_port": 51348,
+      "type": "shadowsocks",
+      "domain_strategy": "ipv4_only",
+      "tag": "Singapore"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "83.229.70.215",
+      "server_port": 13337,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ta-2.trollfunny.net"
+      },
+      "transport": {
+        "headers": {},
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "bdd22841-c4d2-4aa8-acf2-95aa9125f159",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Israel"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "45.76.29.246",
+      "server_port": 80,
+      "transport": {
+        "headers": {
+          "Host": "45.76.29.246"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "c7c51373-5a83-484d-c21d-ac71e45001f1",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-1"
+    },
+    {
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "104.21.31.183",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "octavi.cfd"
+      },
+      "transport": {
+        "headers": {
+          "Host": "octavi.cfd"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-2"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "168.75.76.226",
+      "server_port": 20492,
+      "uuid": "259e1c70-fa0f-4759-b959-1e5630eac8de",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-3"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "138.68.136.50",
+      "server_port": 65500,
+      "transport": {
+        "headers": {},
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6b2e381c-8214-47c7-aa73-54c803ef1d22",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United Kingdom"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "104.31.16.58",
+      "server_port": 2053,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "b5.iraniancp.click"
+      },
+      "transport": {
+        "headers": {
+          "Host": "b5.iraniancp.click"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "72f76c36-3e3c-45b3-a61f-d8f017345958",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-4"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "104.17.77.94",
+      "server_port": 2053,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "b5.iraniancp.click"
+      },
+      "transport": {
+        "headers": {
+          "Host": "b5.iraniancp.click"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "72f76c36-3e3c-45b3-a61f-d8f017345958",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-5"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "172.67.142.191",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "edeen.makeup"
+      },
+      "transport": {
+        "headers": {
+          "Host": "edeen.makeup"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-6"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "discord.gg",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "octavi.cfd"
+      },
+      "transport": {
+        "headers": {
+          "Host": "octavi.cfd"
+        },
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "United States-7"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "188.114.99.29",
+      "server_port": 2053,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "b5.iraniancp.click"
+      },
+      "transport": {
+        "headers": {
+          "Host": "b5.iraniancp.click"
+        },
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "72f76c36-3e3c-45b3-a61f-d8f017345958",
+      "type": "vmess",
+      "domain_strategy": "ipv4_only",
+      "tag": "Netherlands"
+    },
+    {
+      "password": "bf432b0411",
+      "server": "103.106.228.223",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "jp1.connecton.surf"
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "India"
+    },
+    {
+      "password": "fMucnQTndf",
+      "server": "no.08.ijg.cc",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇺🇸US_244"
+    },
+    {
+      "password": "9Mdw86d7Cz",
+      "server": "132.145.208.20",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "no.09.ijg.cc"
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "United+States"
+    },
+    {
+      "password": "telegram-id-directvpn",
+      "server": "51.20.39.88",
+      "server_port": 22222,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "trj.rollingnext.co.uk"
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "France"
+    },
+    {
+      "password": "a77ad20a55",
+      "server": "91.209.70.106",
+      "server_port": 443,
       "tls": {
         "enabled": true,
         "insecure": false,
@@ -263,5 +876,39 @@
         ]
       }
     ]
-  }
+  },
+  "inbounds": [
+    {
+      "listen": "0.0.0.0",
+      "listen_port": 6450,
+      "override_address": "8.8.8.8",
+      "override_port": 53,
+      "tag": "dns-in",
+      "type": "direct"
+    },
+    {
+      "domain_strategy": "prefer_ipv4",
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "tag": "mixed-in",
+      "type": "mixed"
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "domain_strategy": "prefer_ipv4",
+      "interface_name": "tun",
+      "inet4_address": "172.19.0.1/28",
+      "inet6_address": "da26:2626::1/126",
+      "mtu": 1300,
+      "auto_route": true,
+      "strict_route": true,
+      "stack": "system",
+      "endpoint_independent_nat": true,
+      "sniff": true,
+      "sniff_override_destination": true
+    }
+  ]
 }
