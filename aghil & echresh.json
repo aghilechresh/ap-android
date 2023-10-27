@@ -1,1813 +1,267 @@
-{
-  "log": {
-    "level": "panic"
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "dns-remote",
-        "address": "tcp://1.0.0.1",
-        "address_resolver": "dns-direct",
-        "strategy": "ipv4_only"
-      },
-      {
-        "tag": "dns-direct",
-        "address": "local",
-        "address_resolver": "dns-local",
-        "strategy": "ipv4_only",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-local",
-        "address": "local",
-        "detour": "direct"
-      },
-      {
-        "tag": "dns-block",
-        "address": "rcode://success"
-      }
-    ],
-    "rules": [
-      {
-        "geosite": "category-ads-all",
-        "server": "dns-block",
-        "disable_cache": true
-      },
-      {
-        "domain_suffix": [
-          "appcenter.ms",
-          "app-measurement.com",
-          "firebase.io",
-          "crashlytics.com",
-          "google-analytics.com"
-        ],
-        "server": "dns-block",
-        "disable_cache": true
-      }
-    ],
-    "independent_cache": true
-  },
-  "inbounds": [
-    {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "0.0.0.0",
-      "listen_port": 6450,
-      "override_address": "8.8.8.8",
-      "override_port": 53
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    },
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "interface_name": "tun",
-      "mtu": 1300,
-      "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
-      "auto_route": true,
-      "strict_route": true,
-      "endpoint_independent_nat": true,
-      "stack": "system",
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @DeamNet_Proxy | US🇺🇸 | 0️⃣2️⃣",
-      "server": "104.24.225.78",
-      "server_port": 443,
-      "uuid": "91a4ed1f-f693-4685-a6be-f0981d6f2613",
-      "security": "auto",
+{"log":{"disabled":false,"level":"fatal","timestamp":true},"experimental":{"clash_api":{"external_controller":"0.0.0.0:9090","external_ui":"yacd","external_ui_download_url":"https:\/\/github.com\/MetaCubeX\/Yacd-meta\/archive\/gh-pages.zip","external_ui_download_detour":"direct","secret":"","default_mode":"rule","store_selected":true,"cache_file":"clash.db"}},"dns":{"servers":[{"address":"https:\/\/dns.bitdefender.net\/dns-query","address_resolver":"dns-direct","strategy":"ipv4_only","tag":"dns-remote"},{"address":"https:\/\/dns.bitdefender.net\/dns-query","address_resolver":"dns-local","detour":"direct","strategy":"ipv4_only","tag":"dns-direct"},{"address":"local","detour":"direct","tag":"dns-local"},{"address":"rcode:\/\/success","tag":"dns-block"}],"rules":[{"domain_suffix":[".ir"],"server":"dns-direct"},{"outbound":"direct","server":"dns-direct","rewrite_ttl":20},{"outbound":"any","server":"dns-direct","rewrite_ttl":20}],"reverse_mapping":true,"strategy":"ipv4_only","independent_cache":true},"outbounds":[{"alter_id":1,"packet_encoding":"","security":"auto","server":"odelia.autos","server_port":443,"tls":{"enabled":true,"insecure":false},"transport":{"headers":{},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🏁ZZ_122"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"ophelia.mom","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ophelia.mom"},"transport":{"headers":{"Host":"ophelia.mom"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇨🇦CA_124"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"alvvin.click","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"alvvin.click"},"transport":{"headers":{"Host":"alvvin.click"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_128"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.31.16.120","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"waynn.makeup","server_port":443,"tls":{"enabled":true,"insecure":false},"transport":{"headers":{},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_135"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"octavi.cfd","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_130"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"188.114.97.1","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"odelia.autos"},"transport":{"headers":{"Host":"odelia.autos"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cc1.clare88.tk","server_port":12653,"tls":{"enabled":true,"insecure":false},"uuid":"fce96161-0c58-4ba9-8430-660d84083888","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-1"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"edeen.makeup","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-2"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.21.36.26","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconebbb.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconebbb.gorgorchicken.one"},"path":"\/cloudconebbb","type":"ws"},"uuid":"aa0c4744-9568-4bee-a08b-73668a9b2a42","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-3"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cloudconebbb.gorgorchicken.one","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconebbb.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconebbb.gorgorchicken.one"},"path":"\/cloudconebbb","type":"ws"},"uuid":"aa0c4744-9568-4bee-a08b-73668a9b2a42","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-4"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"cloudconeaaa.gorgorchicken.one","server_port":8443,"tls":{"enabled":true,"insecure":false,"server_name":"cloudconeaaa.gorgorchicken.one"},"transport":{"headers":{"Host":"cloudconeaaa.gorgorchicken.one"},"path":"\/cloudconeaaa","type":"ws"},"uuid":"1cec1ebc-b489-4769-f2d9-e079b5832a60","type":"vmess","domain_strategy":"ipv4_only","tag":"v2cross.com-5"},{"method":"aes-256-cfb","password":"f8f7aCzcPKbsF8p3","server":"121.127.46.147","server_port":989,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"🇦🇫"},{"method":"chacha20-ietf-poly1305","password":"P2zxXPewlV3BlfqqYiSthvtLc","server":"212.113.106.243","server_port":12949,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"Russia"},{"method":"chacha20-ietf-poly1305","password":"TrikGtY68Jn10BwegTed","server":"195.123.238.229","server_port":51348,"type":"shadowsocks","domain_strategy":"ipv4_only","tag":"Singapore"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"83.229.70.215","server_port":13337,"tls":{"enabled":true,"insecure":false,"server_name":"ta-2.trollfunny.net"},"transport":{"headers":{},"path":"\/","type":"ws"},"uuid":"bdd22841-c4d2-4aa8-acf2-95aa9125f159","type":"vmess","domain_strategy":"ipv4_only","tag":"Israel"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"45.76.29.246","server_port":80,"transport":{"headers":{"Host":"45.76.29.246"},"path":"\/","type":"ws"},"uuid":"c7c51373-5a83-484d-c21d-ac71e45001f1","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-1"},{"alter_id":1,"packet_encoding":"","security":"auto","server":"104.21.31.183","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-2"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"168.75.76.226","server_port":20492,"uuid":"259e1c70-fa0f-4759-b959-1e5630eac8de","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-3"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"138.68.136.50","server_port":65500,"transport":{"headers":{},"path":"\/","type":"ws"},"uuid":"6b2e381c-8214-47c7-aa73-54c803ef1d22","type":"vmess","domain_strategy":"ipv4_only","tag":"United Kingdom"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.31.16.58","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-4"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"104.17.77.94","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-5"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"172.67.142.191","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"edeen.makeup"},"transport":{"headers":{"Host":"edeen.makeup"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-6"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"discord.gg","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"octavi.cfd"},"transport":{"headers":{"Host":"octavi.cfd"},"path":"linkvws","type":"ws"},"uuid":"03fcc618-b93d-6796-6aed-8a38c975d581","type":"vmess","domain_strategy":"ipv4_only","tag":"United States-7"},{"alter_id":0,"packet_encoding":"","security":"auto","server":"188.114.99.29","server_port":2053,"tls":{"enabled":true,"insecure":false,"server_name":"b5.iraniancp.click"},"transport":{"headers":{"Host":"b5.iraniancp.click"},"path":"\/","type":"ws"},"uuid":"72f76c36-3e3c-45b3-a61f-d8f017345958","type":"vmess","domain_strategy":"ipv4_only","tag":"Netherlands"},{"password":"bf432b0411","server":"103.106.228.223","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"jp1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"India"},{"password":"fMucnQTndf","server":"no.08.ijg.cc","server_port":443,"tls":{"enabled":true,"insecure":false},"type":"trojan","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_244"},{"password":"9Mdw86d7Cz","server":"132.145.208.20","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"no.09.ijg.cc"},"type":"trojan","domain_strategy":"ipv4_only","tag":"United+States"},{"password":"telegram-id-directvpn","server":"51.20.39.88","server_port":22222,"tls":{"enabled":true,"insecure":false,"server_name":"trj.rollingnext.co.uk"},"type":"trojan","domain_strategy":"ipv4_only","tag":"France"},{"password":"a77ad20a55","server":"91.209.70.106","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ru1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"Belize"},{"password":"fMucnQTndf","server":"129.213.63.5","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"no.08.ijg.cc"},"type":"trojan","domain_strategy":"ipv4_only","tag":"United+States-1"},{"password":"a77ad20a55","server":"ru1.connecton.surf","server_port":443,"tls":{"enabled":true,"insecure":false,"server_name":"ru1.connecton.surf"},"type":"trojan","domain_strategy":"ipv4_only","tag":"Belize-1"},{"password":"9Mdw86d7Cz","server":"no.09.ijg.cc","server_port":443,"tls":{"enabled":true,"insecure":false},"type":"trojan","domain_strategy":"ipv4_only","tag":"Relay_🇺🇸US-🇺🇸US_1941"},{"packet_encoding":"","server":"45.158.15.229","server_port":443,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"QgAUsi01XEhi-JNPbc8bjqygkUhRnckMtd8jfLPdZGA","short_id":"97053b46"},"server_name":"greenpepper.ir","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw","type":"grpc"},"uuid":"cc909282-2203-446d-90a1-ea77e77da2b7","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣"},{"packet_encoding":"","server":"94.228.169.211","server_port":24508,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"TZD5MwFUnrd33HVHFWMrdwWcbLQAICwGSeov26rtkwM","short_id":"fb637b21"},"server_name":"aws.amazon.com","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"","type":"grpc"},"uuid":"9593382e-625c-47f0-adb1-00a5becf02a1","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣"},{"packet_encoding":"","server":"128.140.3.97","server_port":443,"tls":{"enabled":true,"insecure":false,"reality":{"enabled":true,"public_key":"Si9Y64G6B5t6XsvnbD_aIPtJlpeUhW7I7lz0e6q5Umk","short_id":"29fe176c"},"server_name":"www.SpeedTest.Net","utls":{"enabled":true,"fingerprint":"chrome"}},"transport":{"service_name":"","type":"grpc"},"uuid":"---Telgram-Parsashonam---","type":"vless","domain_strategy":"ipv4_only","tag":"رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣"},{"tag":"direct","type":"direct"},{"tag":"bypass","type":"direct"},{"tag":"block","type":"block"},{"tag":"dns-out","type":"dns"},{"tag":"proxy","type":"selector","outbounds":["URL-TEST"]},{"tag":"URL-TEST","type":"urltest","url":"https:\/\/www.gstatic.com\/generate_204","interval":"3m","tolerance":50,"outbounds":["Relay_🇺🇸US-🇺🇸US_244","United+States","France","Belize","United+States-1","Belize-1","Relay_🇺🇸US-🇺🇸US_1941","رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣","رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣","رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣","Relay_🇺🇸US-🏁ZZ_122","Relay_🇺🇸US-🇨🇦CA_124","Relay_🇺🇸US-🇺🇸US_128","United States","Relay_🇺🇸US-🇺🇸US_135","Relay_🇺🇸US-🇺🇸US_130","v2cross.com","v2cross.com-1","v2cross.com-2","v2cross.com-3","v2cross.com-4","v2cross.com-5","🇦🇫","Russia","Singapore","Israel","United States-1","United States-2","United States-3","United Kingdom","United States-4","United States-5","United States-6","United States-7","Netherlands","India"]}],"route":{"auto_detect_interface":true,"override_android_vpn":true,"final":"proxy","geoip":{"download_url":"https:\/\/github.com\/MiSaturo\/sing-box-geoip-ir\/releases\/latest\/download\/geoip.db","download_detour":"direct"},"geosite":{"download_url":"https:\/\/github.com\/MasterKia\/iran-hosted-domains\/releases\/latest\/download\/iran-geosite.db","download_detour":"direct"},"rules":[{"outbound":"dns-out","port":[53]},{"inbound":["dns-in"],"outbound":"dns-out"},{"domain_suffix":["ir"],"outbound":"bypass"},{"geoip":["ir"],"outbound":"bypass"},{"geosite":["ir"],"outbound":"direct"},{"geosite":["other"],"outbound":"direct"},{"geosite":["ads"],"outbound":"block"},{"ip_cidr":["224.0.0.0\/3","ff00::\/8"],"outbound":"block","source_ip_cidr":["224.0.0.0\/3","ff00::\/8"]}]},"inbounds":[{"listen":"0.0.0.0","listen_port":6450,"override_address":"8.8.8.8","override_port":53,"tag":"dns-in","type":"direct"},{"domain_strategy":"prefer_ipv4","listen":"0.0.0.0","listen_port":2080,"sniff":true,"sniff_override_destination":true,"tag":"mixed-in","type":"mixed"},{"type":"tun","tag":"tun-in","domain_strategy":"prefer_ipv4","interface_name":"tun","inet4_address":"172.19.0.1\/28","inet6_address":"da26:2626::1\/126","mtu":1300,"auto_route":true,"strict_route":true,"stack":"system","endpoint_independent_nat":true,"sniff":true,"sniff_override_destination":true}]}port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "rockp.blanku.me"
+        "insecure": false,
+        "server_name": "ru1.connecton.surf"
       },
-      "transport": {
-        "type": "ws",
-        "path": "/wss28885",
-        "headers": {
-          "Host": "tree.blanku.me"
-        }
-      }
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "Belize"
     },
     {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @DeamNet_Proxy | RELAY🚩 | 0️⃣1️⃣",
-      "server": "104.27.193.64",
+      "password": "fMucnQTndf",
+      "server": "129.213.63.5",
       "server_port": 443,
-      "uuid": "172dc69f-3b43-4457-8ef8-d555b2d37f4a",
-      "security": "chacha20-poly1305",
       "tls": {
         "enabled": true,
-        "server_name": "service3.karop.homes",
-        "utls": {
+        "insecure": false,
+        "server_name": "no.08.ijg.cc"
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "United+States-1"
+    },
+    {
+      "password": "a77ad20a55",
+      "server": "ru1.connecton.surf",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "ru1.connecton.surf"
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "Belize-1"
+    },
+    {
+      "password": "9Mdw86d7Cz",
+      "server": "no.09.ijg.cc",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false
+      },
+      "type": "trojan",
+      "domain_strategy": "ipv4_only",
+      "tag": "Relay_🇺🇸US-🇺🇸US_1941"
+    },
+    {
+      "packet_encoding": "",
+      "server": "45.158.15.229",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "reality": {
           "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/MScKp0V1fOrj1KT78dJc2lG",
-        "headers": {
-          "Host": "service3.karop.homes"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @DeamNet_Proxy | FR🇫🇷 | 0️⃣3️⃣",
-      "server": "104.17.14.48",
-      "server_port": 443,
-      "uuid": "5c46bc3a-a2f1-4b3c-904b-2b5731f0403b",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "fr-v.sshmax.xyz",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/vmess",
-        "headers": {
-          "Host": "fr-v.sshmax.xyz"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @oneclickvpnkeys | US🇺🇸 | 0️⃣1️⃣",
-      "server": "104.24.208.25",
-      "server_port": 2053,
-      "uuid": "72f76c36-3e3c-45b3-a61f-d8f017345958",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "b5.iraniancp.click"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "b5.iraniancp.click"
+          "public_key": "QgAUsi01XEhi-JNPbc8bjqygkUhRnckMtd8jfLPdZGA",
+          "short_id": "97053b46"
         },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @v2Line | BY🇧🇾 | 0️⃣1️⃣",
-      "server": "5.161.155.83",
-      "server_port": 443,
-      "uuid": "3d1fab6e-3bd6-472b-8d9c-9934c04eaf40",
-      "security": "auto",
-      "transport": {
-        "type": "http",
-        "host": "internet.life.com.by",
-        "path": "/",
-        "method": "GET"
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "رایگان | VMESS | @FreakConfig | RELAY🚩 | 0️⃣2️⃣",
-      "server": "104.20.77.131",
-      "server_port": 443,
-      "uuid": "91a4ed1f-f693-4685-a6be-f0981d6f2613",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "rockp.blanku.me",
-        "alpn": "http/1.1"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/wss28885",
-        "headers": {
-          "Host": "tree.blanku.me"
-        }
-      }
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @frev2ray | CR🇨🇷 | 0️⃣1️⃣",
-      "server": "190.93.246.241",
-      "server_port": 2053,
-      "uuid": "a41dc39a-828f-489c-9046-ea84ce7555c6",
-      "tls": {
-        "enabled": true,
-        "server_name": "proxystore11.miladphotoshop.sbs",
+        "server_name": "greenpepper.ir",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "transport": {
+        "service_name": "Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw-Telegram:@vpn_xw",
         "type": "grpc"
       },
-      "packet_encoding": ""
+      "uuid": "cc909282-2203-446d-90a1-ea77e77da2b7",
+      "type": "vless",
+      "domain_strategy": "ipv4_only",
+      "tag": "رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @frev2ray | SE🇸🇪 | 0️⃣2️⃣",
-      "server": "5.42.72.13",
-      "server_port": 15551,
-      "uuid": "1bcb4dd4-7a88-467a-8f84-5a05b4e47015",
+      "packet_encoding": "",
+      "server": "94.228.169.211",
+      "server_port": 24508,
       "tls": {
         "enabled": true,
-        "server_name": "allnetworks.bestv2ray.sbs",
-        "alpn": [
-          "h2",
-          "http/1.1"
-        ],
-        "utls": {
-          "enabled": true,
-          "fingerprint": "randomized"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@Fair_IR_VPN"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @vpn_xw | FR🇫🇷 | 0️⃣1️⃣",
-      "server": "45.15.157.181",
-      "server_port": 2096,
-      "uuid": "c006e7fd-b16d-489a-a4e6-d74d6fc774af",
-      "tls": {
-        "enabled": true,
-        "server_name": "dash.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
+        "insecure": false,
         "reality": {
           "enabled": true,
-          "public_key": "UiXzyCVZDVkTZZhOStPCaiQBoyXfAR-TcQzCg7fSuhI",
-          "short_id": "585a8fca"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@vpn_xw"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @DarkTeam_VPN | RELAY🚩 | 0️⃣2️⃣",
-      "server": "104.24.185.137",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev",
+          "public_key": "TZD5MwFUnrd33HVHFWMrdwWcbLQAICwGSeov26rtkwM",
+          "short_id": "fb637b21"
+        },
+        "server_name": "aws.amazon.com",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
         }
       },
       "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @DarkTeam_VPN | NL🇳🇱 | 0️⃣3️⃣",
-      "server": "188.114.97.0",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @proxy_kafee | US🇺🇸 | 0️⃣2️⃣",
-      "server": "172.67.194.57",
-      "server_port": 443,
-      "uuid": "e28bb3f8-e64a-4419-9496-33c46220354b",
-      "tls": {
-        "enabled": true,
-        "server_name": "sdgf.bdfstt.sbs"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "sdgf.bdfstt.sbs"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2raysFree | US🇺🇸 | 0️⃣1️⃣",
-      "server": "172.66.44.172",
-      "server_port": 2087,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2raysFree | RELAY🚩 | 0️⃣2️⃣",
-      "server": "104.20.156.248",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣1️⃣",
-      "server": "172.67.242.38",
-      "server_port": 2087,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "https://www.udomain.hk/sc/customer/case-study?_gl=1*1hsw0bx*_ga*mtewmje1mze2mc4xnjkyotixntu2*_ga_4n38ns1xjw*mty5ndi0mzgxmi40ljaumty5ndi0mzgxmi4wljauma..",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | RELAY🚩 | 1️⃣2️⃣",
-      "server": "104.24.177.7",
-      "server_port": 2053,
-      "uuid": "d9a66cc5-0e40-459f-b7aa-6272e46839ee",
-      "tls": {
-        "enabled": true,
-        "server_name": "Pm.RxV2ray.space"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "Pm.RxV2ray.space"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | RELAY🚩 | 1️⃣3️⃣",
-      "server": "104.19.19.58",
-      "server_port": 2096,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣4️⃣",
-      "server": "172.66.44.82",
-      "server_port": 443,
-      "uuid": "c688395a-b36b-4071-974b-bc91ac2ad2c4",
-      "tls": {
-        "enabled": true,
-        "server_name": "edtunnel-b6t.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "edtunnel-b6t.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | NL🇳🇱 | 1️⃣5️⃣",
-      "server": "188.114.98.121",
-      "server_port": 2087,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "yqwbsnzdh21493americanexpress.com/en-us/business/blueprint/business-line-of-credit/?refid=amex_p2_sem_nb_p2-loc-gdn-inmarket_ad30_inc|eaiaiqobchmimumjsnz_gamvrzhpcb1q9grxeaeyasaaegjhxfd_bwe",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣6️⃣",
-      "server": "172.67.197.82",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "yqwbsnzdh21493americanexpress.com/en-us/business/blueprint/business-line-of-credit/?refid=amex_p2_sem_nb_p2-loc-gdn-inmarket_ad30_inc|eaiaiqobchmimumjsnz_gamvrzhpcb1q9grxeaeyasaaegjhxfd_bwe",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @prrofile_purple | US🇺🇸 | 0️⃣1️⃣",
-      "server": "172.66.47.84",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @customv2ray | US🇺🇸 | 0️⃣2️⃣",
-      "server": "172.67.139.111",
-      "server_port": 2096,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @ShadowProxy66 | NL🇳🇱 | 0️⃣2️⃣",
-      "server": "188.114.97.3",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @Proxy_PJ | RELAY🚩 | 0️⃣3️⃣",
-      "server": "104.22.11.129",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @v2ray1_ng | RELAY🚩 | 0️⃣2️⃣",
-      "server": "104.16.23.29",
-      "server_port": 443,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @v2ray_vpn_ir | RELAY🚩 | 0️⃣1️⃣",
-      "server": "104.18.118.51",
-      "server_port": 2087,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "https://www.udomain.hk/sc/customer/case-study?_gl=1*1hsw0bx*_ga*mtewmje1mze2mc4xnjkyotixntu2*_ga_4n38ns1xjw*mty5ndi0mzgxmi40ljaumty5ndi0mzgxmi4wljauma..",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @v2ray_vpn_ir | RELAY🚩 | 0️⃣3️⃣",
-      "server": "104.20.156.248",
-      "server_port": 2087,
-      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "https://www.udomain.hk/sc/customer/case-study?_gl=1*1hsw0bx*_ga*mtewmje1mze2mc4xnjkyotixntu2*_ga_4n38ns1xjw*mty5ndi0mzgxmi40ljaumty5ndi0mzgxmi4wljauma..",
-        "headers": {
-          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣1️⃣",
-      "server": "172.67.139.111",
-      "server_port": 2083,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣2️⃣",
-      "server": "172.67.139.111",
-      "server_port": 8443,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣3️⃣",
-      "server": "172.67.139.111",
-      "server_port": 2053,
-      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
-      "tls": {
-        "enabled": true,
-        "server_name": "baipiao1.curly-train.pages.dev"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/",
-        "headers": {
-          "Host": "baipiao1.curly-train.pages.dev"
-        },
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @Outlinev2rayNG | DE🇩🇪 | 0️⃣3️⃣",
-      "server": "49.13.83.153",
-      "server_port": 443,
-      "uuid": "88316868-e7c2-4d13-9641-c9b61101fc2b",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.tradingview.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "tHa9lm63yIpaSYqya4Lx4Un7QjPAUTZfP87lw_xzKg8",
-          "short_id": "2254b919"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPNTelegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPNTelegram:@Outline_VPN-Telegram:@Outline_VPN-Telegram:@Outline_VPN"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "رایگان+|+SS+|+@iP_CF+|+FR🇫🇷+|+0️⃣1️⃣",
-      "server": "146.59.71.220",
-      "server_port": 443,
-      "method": "aes-256-cfb",
-      "password": "asdKkaskJKfnsa"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "رایگان+|+SS+|+@iP_CF+|+GB🇬🇧+|+0️⃣2️⃣",
-      "server": "198.244.231.26",
-      "server_port": 443,
-      "method": "aes-256-cfb",
-      "password": "asdKkaskJKfnsa"
-    },
-    {
-      "type": "shadowsocks",
-      "tag": "رایگان+|+SS+|+@iP_CF+|+FR🇫🇷+|+0️⃣3️⃣",
-      "server": "57.128.141.15",
-      "server_port": 443,
-      "method": "aes-256-cfb",
-      "password": "asdKkaskJKfnsa"
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 0️⃣6️⃣",
-      "server": "195.201.46.160",
-      "server_port": 8443,
-      "uuid": "50e2a82b-06c8-453e-b17a-b304a277434c",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Z3ZGnAOdKkzJ07gR_7_0k9_iTTFP6paDOrqx1rN2LU4",
-          "short_id": "11"
-        }
-      },
-      "transport": {
+        "service_name": "",
         "type": "grpc"
       },
-      "packet_encoding": ""
+      "uuid": "9593382e-625c-47f0-adb1-00a5becf02a1",
+      "type": "vless",
+      "domain_strategy": "ipv4_only",
+      "tag": "رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 1️⃣0️⃣",
-      "server": "91.107.146.245",
-      "server_port": 17511,
-      "uuid": "3b98048b-e573-44e0-bc48-ec9a5c07bdce",
+      "packet_encoding": "",
+      "server": "128.140.3.97",
+      "server_port": 443,
       "tls": {
         "enabled": true,
-        "server_name": "canva.com",
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "Si9Y64G6B5t6XsvnbD_aIPtJlpeUhW7I7lz0e6q5Umk",
+          "short_id": "29fe176c"
+        },
+        "server_name": "www.SpeedTest.Net",
         "utls": {
           "enabled": true,
           "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "pTj7XyvnzpUEx7oPtBgN8q4cP5w6iosy_Ts7obpAvB4",
-          "short_id": "a0862038"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 1️⃣2️⃣",
-      "server": "144.76.167.84",
-      "server_port": 2087,
-      "uuid": "DamonConfig",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "vl2SIAtSvZtMsmioAMT63BaQJfWhMF6rGyEVeLYqOiw",
-          "short_id": "84"
         }
       },
       "transport": {
-        "type": "grpc",
-        "service_name": "@DamonConfig@DamonConfig@DamonConfig@DamonConfig@DamonConfig@DamonConfig@DamonConfig@DamonConfig"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 0️⃣1️⃣",
-      "server": "5.75.251.8",
-      "server_port": 20957,
-      "uuid": "fbbace7d-9ef7-4be0-ab85-61c8fdfce9ad",
-      "tls": {
-        "enabled": true,
-        "server_name": "coudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "3lhY4nf_OKxN_EZsUjR_xHVgi21PxUeV6ZislT9kxDg",
-          "short_id": "274d5ef2"
-        }
-      },
-      "transport": {
-        "type": "http",
-        "path": "/"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | FR🇫🇷 | 1️⃣7️⃣",
-      "server": "46.105.218.0",
-      "server_port": 16741,
-      "uuid": "d2176467-4879-4beb-94e9-f1fa8177d8e2",
-      "tls": {
-        "enabled": true,
-        "server_name": "ea.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "kp0my80cNyM8TPeU-LbUaU3DSlAnYkbJ9jeWI2WougM",
-          "short_id": "6ae860e1"
-        }
-      },
-      "transport": {
+        "service_name": "",
         "type": "grpc"
       },
-      "packet_encoding": ""
-    },
-    {
+      "uuid": "---Telgram-Parsashonam---",
       "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 1️⃣9️⃣",
-      "server": "23.88.102.224",
-      "server_port": 443,
-      "uuid": "031a2d6c-ce91-4167-bcb8-012d346a6e70",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "sn.hfafn.site",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "CPLcMRb5VAd149rnWt2xOoYzNn_L7bPXxH-mnXfe-lM",
-          "short_id": "eb2224c8"
-        }
-      },
-      "packet_encoding": ""
+      "domain_strategy": "ipv4_only",
+      "tag": "رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣0️⃣",
-      "server": "91.107.243.227",
-      "server_port": 723,
-      "uuid": "4d73430d-4323-4884-d3a0-a339cd4226b2",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "LLFNilqoCIdxX-iLYwrLlNYGayHRnrSEPU6I7exy3RY",
-          "short_id": "a1f189"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
+      "tag": "direct",
+      "type": "direct"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣1️⃣",
-      "server": "91.107.180.163",
-      "server_port": 2053,
-      "uuid": "8dfd1bf6-1efd-4ac6-9361-665713490079",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.discordapp.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "xyz"
-      },
-      "packet_encoding": ""
+      "tag": "bypass",
+      "type": "direct"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | NO🇳🇴 | 2️⃣3️⃣",
-      "server": "194.5.98.94",
-      "server_port": 443,
-      "uuid": "9da1693d-9e4c-4a41-841a-f085bf90e70d",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "drive.google.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "NTxE5fnbrIwMXvWbWAKBYRzMfixaioo3NWEewIVrxjg",
-          "short_id": "3d5f458e28"
-        }
-      },
-      "packet_encoding": ""
+      "tag": "block",
+      "type": "block"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 2️⃣4️⃣",
-      "server": "65.109.188.136",
-      "server_port": 443,
-      "uuid": "3ceb1d68-2b99-482e-bb3e-246c9cfbf47a",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "anandtech.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "F4SzdmyBbTOj4btOa5xO2_lJwmwnFHKJuiqaU9Xq0Ro"
-        }
-      },
-      "packet_encoding": ""
+      "tag": "dns-out",
+      "type": "dns"
     },
     {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣6️⃣",
-      "server": "146.56.47.172",
-      "server_port": 443,
-      "uuid": "dc7fec7c-9cf6-4e82-b19f-3b938b124b29",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.media-amazon.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "XK2z6ZWjDVKlCmDHYvvH9u9ImXVTscfbe9tFyZN0skM",
-          "short_id": "036d4f8e"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣7️⃣",
-      "server": "146.56.156.226",
-      "server_port": 443,
-      "uuid": "dc7fec7c-9cf6-4e82-b19f-3b938b124b29",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.media-amazon.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "XK2z6ZWjDVKlCmDHYvvH9u9ImXVTscfbe9tFyZN0skM",
-          "short_id": "036d4f8e"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣8️⃣",
-      "server": "140.238.11.207",
-      "server_port": 443,
-      "uuid": "dc7fec7c-9cf6-4e82-b19f-3b938b124b29",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.media-amazon.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "XK2z6ZWjDVKlCmDHYvvH9u9ImXVTscfbe9tFyZN0skM",
-          "short_id": "036d4f8e"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣9️⃣",
-      "server": "140.238.28.163",
-      "server_port": 443,
-      "uuid": "dc7fec7c-9cf6-4e82-b19f-3b938b124b29",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "m.media-amazon.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "XK2z6ZWjDVKlCmDHYvvH9u9ImXVTscfbe9tFyZN0skM",
-          "short_id": "036d4f8e"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 3️⃣2️⃣",
-      "server": "188.34.158.166",
-      "server_port": 443,
-      "uuid": "ItsDgNmt",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "mihanyas.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "tOt48g55z8PSSTaPsb8xE_HvfKL9lkvozIpwpwZucTc",
-          "short_id": "d2af3f25"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | GB🇬🇧 | 3️⃣3️⃣",
-      "server": "178.62.76.106",
-      "server_port": 27841,
-      "uuid": "fd6e151a-99f8-47cc-9bee-2a94b62899ef",
-      "tls": {
-        "enabled": true,
-        "server_name": "speed.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "goOVSSwEev7EIrDiohSUtDgp37kufl8FlaXHkeEARAk",
-          "short_id": "a63af763"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Telegram:@proxyforopeta"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | FR🇫🇷 | 3️⃣5️⃣",
-      "server": "137.74.8.119",
-      "server_port": 443,
-      "uuid": "50eedb4b-0e9a-4383-948e-5aec05b79fd8",
-      "tls": {
-        "enabled": true,
-        "server_name": "mihanyas.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "DfYoJbJFNx_IVbDpMDpeX0nJaveOayQUvtNUUuOzTQA",
-          "short_id": "3ff2adb4"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "@savagev2ray@ohvpn"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 3️⃣7️⃣",
-      "server": "78.47.255.167",
-      "server_port": 14913,
-      "uuid": "537990dd-b54a-41bc-8691-15274a88c2f2",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "tradingview.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "ICy7C8jGYtT4r4H6pfTSnUEGUPFjXJof7RwRjqh-XDY",
-          "short_id": "7143751d"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣2️⃣",
-      "server": "162.55.38.138",
-      "server_port": 443,
-      "uuid": "03ba9ecd-1b21-4139-b513-95c7fe72bc31",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.canva.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "5pTU-HyLLVkX7eiL9N8PPK4mH9krLMdO_K1MXJk98W4",
-          "short_id": "86f3d73a"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣4️⃣",
-      "server": "49.13.1.124",
-      "server_port": 13199,
-      "uuid": "9a0b8cb4-b8c1-4eac-b583-fddcd7100a1e",
-      "tls": {
-        "enabled": true,
-        "server_name": "sourceforge.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "MHIN7t3uPeqhqOC3XR9LDrgvwxJWsZRP94Q5jB5sVRk",
-          "short_id": "0770194f"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣5️⃣",
-      "server": "116.202.111.87",
-      "server_port": 2096,
-      "uuid": "042777c7-1a34-4d79-8ff1-8a51009169e4",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "c3R5_lORnQd1X3A2E0ulHJn396G2X_ZYIs66ldEVQWI",
-          "short_id": "28f58957"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣7️⃣",
-      "server": "116.203.48.61",
-      "server_port": 42238,
-      "uuid": "e798e167-e64b-4ff4-8b56-7073508ccaa8",
-      "tls": {
-        "enabled": true,
-        "server_name": "flutter.dev",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "CmMScNhDg_1IxpmDszOuP4aZ7vN9-Yg5LffRTMpvFhM",
-          "short_id": "024c29f5"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣8️⃣",
-      "server": "49.12.234.249",
-      "server_port": 433,
-      "uuid": "f66a277d-0990-45ab-c7cb-22c07a8e919d",
-      "tls": {
-        "enabled": true,
-        "server_name": "mega.io",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "VZBW4ZiScdRuWl0PfVoYmgbJc-3sZVMvd6BXZg4ycws",
-          "short_id": "7a3a52136c"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣9️⃣",
-      "server": "159.69.25.131",
-      "server_port": 443,
-      "uuid": "54ce117a-fd26-4b2e-b540-15f95ba3cc63",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.xbox.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "1_NaRFGvbJUim7_qlQ8Dibh_27d3X_p_w2xUvrGZlhg",
-          "short_id": "751ba1a6"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 5️⃣0️⃣",
-      "server": "78.46.186.187",
-      "server_port": 57381,
-      "uuid": "77239301-8431-4440-9c42-8ac098094cdf",
-      "tls": {
-        "enabled": true,
-        "server_name": "ftp.debian.org",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "cy9FTlz7K_ZzNITkar9nze1B4zG6kueoVq6oT_in-Uo",
-          "short_id": "ecc37fb0"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣4️⃣",
-      "server": "116.203.205.164",
-      "server_port": 35107,
-      "uuid": "b5eadbb7-39e9-4e8c-b10c-24f07f72317f",
-      "tls": {
-        "enabled": true,
-        "server_name": "speed.cloudflare.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "WLwaF1oW4nfBuK5tyVdnfS1SLZ5snX7VYcr_VnZH8g4",
-          "short_id": "e458853a"
-        }
-      },
-      "transport": {
-        "type": "http",
-        "path": "/"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | CH🇨🇭 | 7️⃣2️⃣",
-      "server": "94.131.99.218",
-      "server_port": 37619,
-      "uuid": "50a09ec4-32d1-4b8d-9fdb-47874e839581",
-      "tls": {
-        "enabled": true,
-        "server_name": "zula.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "M0HEj2O6_WVN7iAji1ZRjBGV3hMKwHYEileJEVaAf0k",
-          "short_id": "1973486c"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-Telegramjoin:@V2ray_ip-"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | NL🇳🇱 | 7️⃣4️⃣",
-      "server": "79.137.197.103",
-      "server_port": 2087,
-      "uuid": "5278c909-355a-41ea-f63b-0d0231a522b7",
-      "tls": {
-        "enabled": true,
-        "server_name": "iranserver.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "iWgxGQVQZUfOCw4EqmHQToaQPqYt0V5hAfnDo6p-Izg",
-          "short_id": "33fb"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "TelegramID:@iranbaxvpn"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 7️⃣5️⃣",
-      "server": "88.198.118.235",
-      "server_port": 8443,
-      "uuid": "cc1e4ad6-4b23-4b7f-8eda-514aa1c20002",
-      "tls": {
-        "enabled": true,
-        "server_name": "iranserver.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "d_PryPoPxwX_0FUh7Eulm7Fzf73MeoTHRHvxK-pWaBI",
-          "short_id": "9825"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "TelegramID:@iranbaxvpn"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | PL🇵🇱 | 7️⃣6️⃣",
-      "server": "70.34.245.54",
-      "server_port": 4433,
-      "uuid": "9c766db2-5ae1-45e8-8379-1839d71dc325",
-      "tls": {
-        "enabled": true,
-        "server_name": "sni.zarvpn.online",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "X09nWk8Ks2OGaPJyyxotareU23OgoxKTTfGsMgcTWWI",
-          "short_id": "327734f6"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 8️⃣0️⃣",
-      "server": "65.109.196.89",
-      "server_port": 41138,
-      "uuid": "0dd45fdb-f416-4359-b990-cb1ddf926803",
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.discordapp.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "LJQbyOTTUBNWDptyLnmGb5FUqyNMV17dNp7SUrj_iH8",
-          "short_id": "87bb1c20"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 8️⃣1️⃣",
-      "server": "135.181.35.207",
-      "server_port": 443,
-      "uuid": "539f4e23-0caf-4204-a1a5-a5217bbaef1c",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.yahoo.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "GAUjNf1wQnDm5ziCGqRmb3yVfU9bg_UPwZ2_QU4JWRU",
-          "short_id": "6bb85179e30d4fc2"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 6️⃣6️⃣",
-      "server": "142.132.183.55",
-      "server_port": 2096,
-      "uuid": "eefcf749-fcfc-4321-b974-2828d4acb15c",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "spiegel.de",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "GWLTRxw3B1iy29ZW4SqQH113-Gjup6-4vkOMksfEHB0",
-          "short_id": "0d8de1aa"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 6️⃣9️⃣",
-      "server": "128.140.120.121",
-      "server_port": 54819,
-      "uuid": "f99e30ed-1cb1-4057-89dc-a63827a47399",
-      "tls": {
-        "enabled": true,
-        "server_name": "ea.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "JF4vI--m3VrIt9wbsPRSSI0KrzwmPBpSmhlwN4SH9yw",
-          "short_id": "8b49d5e2"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣6️⃣",
-      "server": "91.107.200.123",
-      "server_port": 443,
-      "uuid": "f058e635-90c1-4320-9c82-2e04b68cfc9b",
-      "flow": "xtls-rprx-vision",
-      "tls": {
-        "enabled": true,
-        "server_name": "www.speedtest.net",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "Jdc7gbTnU-hGxBPtRRTNsvlfMaM3EyFM57ILUOksegw",
-          "short_id": "40a874dd"
-        }
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣3️⃣",
-      "server": "162.55.61.202",
-      "server_port": 539,
-      "uuid": "0c476332-1a88-482c-9701-e59909cbde12",
-      "tls": {
-        "enabled": true,
-        "server_name": "zula.ir",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "zBMjcfkAKTP4lAJPXoX8vbxuhr4iNYZkzUZ95BJJ13o",
-          "short_id": "2e26b4fe"
-        }
-      },
-      "transport": {
-        "type": "grpc",
-        "service_name": "Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-Telegramjoin:@V2ray_ip1-"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 9️⃣4️⃣",
-      "server": "23.92.22.75",
-      "server_port": 32147,
-      "uuid": "5b4ecd82-9027-40bb-9b52-1c2b482d2556",
-      "tls": {
-        "enabled": true,
-        "server_name": "gsmarena.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "E-4cvfL9rBhM2jyHvlQjnVulfX8Uh1g4Ptwo45CKd3c",
-          "short_id": "e5e5b97f"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "vless",
-      "tag": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 9️⃣5️⃣",
-      "server": "5.161.155.211",
-      "server_port": 443,
-      "uuid": "34264397-f499-4be8-aae2-7c80771a4df6",
-      "tls": {
-        "enabled": true,
-        "server_name": "booking.com",
-        "utls": {
-          "enabled": true,
-          "fingerprint": "firefox"
-        },
-        "reality": {
-          "enabled": true,
-          "public_key": "5hZtBKe9avkHHfQlTkEDfQ_GO4BG3yASLQDsLLs2jjU",
-          "short_id": "c914091d"
-        }
-      },
-      "transport": {
-        "type": "grpc"
-      },
-      "packet_encoding": ""
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "direct",
-      "tag": "bypass"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "urltest",
       "tag": "proxy",
+      "type": "selector",
       "outbounds": [
-        "رایگان+|+SS+|+@iP_CF+|+FR🇫🇷+|+0️⃣1️⃣",
-        "رایگان+|+SS+|+@iP_CF+|+GB🇬🇧+|+0️⃣2️⃣",
-        "رایگان+|+SS+|+@iP_CF+|+FR🇫🇷+|+0️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣2️⃣",
-        "رایگان | VMESS | @DeamNet_Proxy | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 0️⃣6️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 1️⃣0️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 1️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | FR🇫🇷 | 1️⃣7️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 1️⃣9️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣0️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 2️⃣1️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | NO🇳🇴 | 2️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 2️⃣4️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣6️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣7️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣8️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | KR🇰🇷 | 2️⃣9️⃣",
-        "رایگان | VLESS | @Proxy_PJ | RELAY🚩 | 0️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 3️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 6️⃣6️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | GB🇬🇧 | 3️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | FR🇫🇷 | 3️⃣5️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 6️⃣9️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 3️⃣7️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣4️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣5️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣7️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣8️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 4️⃣9️⃣",
-        "رایگان | VMESS | @DeamNet_Proxy | RELAY🚩 | 0️⃣1️⃣",
-        "رایگان | VLESS | @DarkTeam_VPN | NL🇳🇱 | 0️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 5️⃣0️⃣",
-        "رایگان | VMESS | @DeamNet_Proxy | FR🇫🇷 | 0️⃣3️⃣",
-        "رایگان | VLESS | @V2raysFree | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣4️⃣",
-        "رایگان | VMESS | @oneclickvpnkeys | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | VLESS | @V2raysFree | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | VMESS | @v2Line | BY🇧🇾 | 0️⃣1️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | CH🇨🇭 | 7️⃣2️⃣",
-        "رایگان | VMESS | @FreakConfig | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | NL🇳🇱 | 7️⃣4️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 7️⃣5️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | PL🇵🇱 | 7️⃣6️⃣",
-        "رایگان | VLESS | @frev2ray | CR🇨🇷 | 0️⃣1️⃣",
-        "رایگان | VLESS | @frev2ray | SE🇸🇪 | 0️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 8️⃣0️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | FI🇫🇮 | 8️⃣1️⃣",
-        "رایگان | REALITY | @vpn_xw | FR🇫🇷 | 0️⃣1️⃣",
-        "رایگان | VLESS | @proxy_kafee | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | VLESS | @ShadowProxy66 | NL🇳🇱 | 0️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 9️⃣4️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 9️⃣5️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣3️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣1️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | RELAY🚩 | 1️⃣2️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | RELAY🚩 | 1️⃣3️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣4️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | NL🇳🇱 | 1️⃣5️⃣",
-        "رایگان | VLESS | @v2ray_vpn_ir | RELAY🚩 | 0️⃣1️⃣",
-        "رایگان | VLESS | @V2rayCollectorDonate | US🇺🇸 | 1️⃣6️⃣",
-        "رایگان | VLESS | @v2ray_vpn_ir | RELAY🚩 | 0️⃣3️⃣",
-        "رایگان | VLESS | @prrofile_purple | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | VLESS | @customv2ray | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | VLESS | @DarkTeam_VPN | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | VLESS | @v2ray1_ng | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 5️⃣6️⃣",
-        "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | VLESS | @ConfigsHUB | US🇺🇸 | 0️⃣3️⃣",
-        "رایگان | REALITY | @Outlinev2rayNG | DE🇩🇪 | 0️⃣3️⃣",
-        "رایگان | REALITY | @V2Hub | Donated | DE🇩🇪 | 0️⃣1️⃣"
-      ],
+        "URL-TEST"
+      ]
+    },
+    {
+      "tag": "URL-TEST",
+      "type": "urltest",
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "20s",
-      "tolerance": 50
+      "interval": "3m",
+      "tolerance": 50,
+      "outbounds": [
+        "Relay_🇺🇸US-🇺🇸US_244",
+        "United+States",
+        "France",
+        "Belize",
+        "United+States-1",
+        "Belize-1",
+        "Relay_🇺🇸US-🇺🇸US_1941",
+        "رایگان | REALITY | @vpn_xw | TR🇹🇷 | 0️⃣2️⃣",
+        "رایگان | REALITY | @azadi_az_inja_migzare | AT🇦🇹 | 0️⃣1️⃣",
+        "رایگان | REALITY | @V2rayCollectorDonate | DE🇩🇪 | 0️⃣1️⃣",
+        "Relay_🇺🇸US-🏁ZZ_122",
+        "Relay_🇺🇸US-🇨🇦CA_124",
+        "Relay_🇺🇸US-🇺🇸US_128",
+        "United States",
+        "Relay_🇺🇸US-🇺🇸US_135",
+        "Relay_🇺🇸US-🇺🇸US_130",
+        "v2cross.com",
+        "v2cross.com-1",
+        "v2cross.com-2",
+        "v2cross.com-3",
+        "v2cross.com-4",
+        "v2cross.com-5",
+        "🇦🇫",
+        "Russia",
+        "Singapore",
+        "Israel",
+        "United States-1",
+        "United States-2",
+        "United States-3",
+        "United Kingdom",
+        "United States-4",
+        "United States-5",
+        "United States-6",
+        "United States-7",
+        "Netherlands",
+        "India"
+      ]
     }
   ],
   "route": {
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "final": "proxy",
+    "geoip": {
+      "download_url": "https://github.com/MiSaturo/sing-box-geoip-ir/releases/latest/download/geoip.db",
+      "download_detour": "direct"
+    },
+    "geosite": {
+      "download_url": "https://github.com/MasterKia/iran-hosted-domains/releases/latest/download/iran-geosite.db",
+      "download_detour": "direct"
+    },
     "rules": [
       {
-        "port": 53,
+        "outbound": "dns-out",
+        "port": [
+          53
+        ]
+      },
+      {
+        "inbound": [
+          "dns-in"
+        ],
         "outbound": "dns-out"
-      },
-      {
-        "inbound": "dns-in",
-        "outbound": "dns-out"
-      },
-      {
-        "network": "udp",
-        "port": 443,
-        "outbound": "block"
-      },
-      {
-        "geosite": "category-ads-all",
-        "outbound": "block"
       },
       {
         "domain_suffix": [
-          "appcenter.ms",
-          "app-measurement.com",
-          "firebase.io",
-          "crashlytics.com",
-          "google-analytics.com"
+          "ir"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "geoip": [
+          "ir"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "geosite": [
+          "ir"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": [
+          "other"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": [
+          "ads"
         ],
         "outbound": "block"
       },
       {
-        "geoip": "ir",
-        "outbound": "bypass"
-      },
-      {
-        "network": "tcp",
-        "source_port": 443,
-        "port": 53,
-        "outbound": "رایگان+|+SS+|+@iP_CF+|+FR🇫🇷+|+0️⃣1️⃣"
-      },
-      {
-        "network": "udp",
-        "source_port": 53,
-        "port": 443,
-        "outbound": "proxy"
-      },
-      {
-        "network": "udp",
-        "ip_cidr": "10.10.34.35",
-        "outbound": "رایگان | REALITY | @V2Hub | Donated | US🇺🇸 | 5️⃣0️⃣"
-      },
-      {
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
         "ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "block"
+        "outbound": "block",
+        "source_ip_cidr": [
+          "224.0.0.0/3",
+          "ff00::/8"
+        ]
       }
-    ],
-    "auto_detect_interface": true
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "127.0.0.1:9090",
-      "external_ui": "../files/yacd",
-      "cache_file": "../cache/clash.db"
-    }
+    ]
   }
 }
