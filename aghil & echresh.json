@@ -17,7 +17,7 @@
     ],
     "servers": [
       {
-        "address": "local",
+        "address": "tcp://1.1.1.1",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
@@ -371,12 +371,6 @@
         ]
       },
       {
-        "outbound": "dns-direct",
-        "port": [
-          8080
-        ]
-      },
-      {
         "inbound": [
           "dns-in"
         ],
@@ -403,7 +397,7 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "dns-out",
+        "outbound": "block",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
@@ -422,7 +416,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "interface_name": "utun",
+      "interface_name": "tun0",
       "inet6_address": "2001:db8::/32",
       "inet4_address": "10.0.0.1/8",
       "mtu": 9000,
