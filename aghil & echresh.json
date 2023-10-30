@@ -10,20 +10,23 @@
           "channel.safenetir.life",
           "azadi-az-inja-migzare-d3.dgi000.store",
           "f1.bestvipserviceirr.xyz",
-          "r.apphone.sbs"
+          "r.apphone.sbs",
+          "speedtest",
+          ".ir",
+          "github"
         ],
         "server": "dns-direct"
       }
     ],
     "servers": [
       {
-        "address": "9.9.9.9",
+        "address": "tcp://4.2.2.4",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
       },
       {
-        "address": "1.1.1.1",
+        "address": "local",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "ipv4_only",
@@ -47,42 +50,6 @@
       "external_ui": "../files/yacd"
     }
   },
-  "inbounds": [
-    {
-      "listen": "127.0.0.1",
-      "listen_port": 1818,
-      "override_address": "8.8.8.8",
-      "override_port": 53,
-      "tag": "dns-in",
-      "type": "direct"
-    },
-    {
-      "domain_strategy": "",
-      "endpoint_independent_nat": true,
-      "inet4_address": [
-        "172.19.0.1/28"
-      ],
-      "inet6_address": [
-        "fdfe:dcba:9876::1/126"
-      ],
-      "mtu": 1500,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "stack": "system",
-      "tag": "tun-in",
-      "type": "tun",
-      "auto_route": true
-    },
-    {
-      "domain_strategy": "",
-      "listen": "127.0.0.1",
-      "listen_port": 1080,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "tag": "mixed-in",
-      "type": "mixed"
-    }
-  ],
   "log": {
     "level": "warn"
   },
@@ -391,6 +358,10 @@
     {
       "tag": "dns-out",
       "type": "dns"
+    },
+    {
+      "tag": "dns-direct",
+      "type": "direct"
     }
   ],
   "route": {
@@ -403,6 +374,12 @@
         ]
       },
       {
+        "outbound": "dns-direct",
+        "port": [
+          8080
+        ]
+      },
+      {
         "inbound": [
           "dns-in"
         ],
@@ -410,13 +387,17 @@
       },
       {
         "geosite": [
-          "ir"
+          "ir",
+          "github",
+          "tiktok",
+          "speedtest"
         ],
         "outbound": "bypass"
       },
       {
         "geoip": [
-          "ir"
+          "ir",
+          "cn"
         ],
         "outbound": "bypass"
       },
@@ -425,12 +406,35 @@
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "block",
+        "outbound": "dns-out",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
         ]
       }
     ]
-  }
+  },
+  "inbounds": [
+    {
+      "type": "redirect",
+      "tag": "redirect-in",
+      "listen": "::",
+      "listen_port": 9797,
+      "sniff": true
+    },
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "utun",
+      "inet6_address": "2001:db8::/32",
+      "inet4_address": "10.0.0.1/8",
+      "mtu": 9000,
+      "stack": "system",
+      "auto_route": true,
+      "strict_route": true,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "domain_strategy": "prefer_ipv4"
+    }
+  ]
 }
