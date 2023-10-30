@@ -10,17 +10,14 @@
           "channel.safenetir.life",
           "azadi-az-inja-migzare-d3.dgi000.store",
           "f1.bestvipserviceirr.xyz",
-          "r.apphone.sbs",
-          "speedtest",
-          ".ir",
-          "github"
+          "r.apphone.sbs"
         ],
         "server": "dns-direct"
       }
     ],
     "servers": [
       {
-        "address": "tcp://4.2.2.4",
+        "address": "local",
         "address_resolver": "dns-direct",
         "strategy": "ipv4_only",
         "tag": "dns-remote"
