@@ -1,0 +1,26 @@
+{
+  "tag": "VMESS | @V2rayCollectorDonate | NL🇳🇱 | 0️⃣1️⃣",
+  "type": "vmess",
+  "server": "89.223.90.4",
+  "server_port": 80,
+  "uuid": "90c33cf5-18c2-4c5a-8601-507e99c3a3eb",
+  "security": "auto",
+  "alter_id": 0,
+  "global_padding": false,
+  "authenticated_length": true,
+  "packet_encoding": "",
+  "multiplex": {
+    "enabled": false,
+    "protocol": "smux",
+    "max_streams": 32
+  },
+  "transport": {
+    "type": "ws",
+    "path": "/",
+    "headers": {
+      "Host": "mci.extensionforme.online"
+    },
+    "max_early_data": 0,
+    "early_data_header_name": "Sec-WebSocket-Protocol"
+  }
+}
