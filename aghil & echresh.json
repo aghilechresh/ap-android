@@ -1,37 +1,15 @@
 {
   "dns": {
     "independent_cache": true,
-    "rules": [
-      {
-        "domain": [
-          "oliv.beauty",
-          "jp1.connecton.surf",
-          "cc1.clare88.tk",
-          "discord.gg",
-          "octavi.cfd",
-          "brcf.duaaoped.xyz",
-          "de1.connecton.surf",
-          "odelia.autos",
-          "germany.yourdisha.in",
-          "www.speedtest.net",
-          "speed.cloudflare.com",
-          "v2line.telegram.channel.1333.fr8678825324247b8176d59f83c30bd94d23d2e3ac5cd4a743bkwqeikvdyufr.cyou",
-          "alvvin.click",
-          "api.jquery.com",
-          "ophelia.mom"
-        ],
-        "server": "dns-direct"
-      }
-    ],
     "servers": [
       {
-        "address": "1.0.0.1",
+        "address": "tcp://77.88.8.8",
         "address_resolver": "dns-direct",
         "strategy": "prefer_ipv4",
         "tag": "dns-remote"
       },
       {
-        "address": "8.8.8.8",
+        "address": "local",
         "address_resolver": "dns-local",
         "detour": "direct",
         "strategy": "prefer_ipv4",
@@ -57,7 +35,7 @@
   },
   "inbounds": [
     {
-      "listen": "127.0.0.1",
+      "listen": "0.0.0.0",
       "listen_port": 1818,
       "override_address": "8.8.8.8",
       "override_port": 53,
@@ -68,22 +46,22 @@
       "domain_strategy": "",
       "endpoint_independent_nat": true,
       "inet4_address": [
-        "10.0.0.9/23"
+        "192.18.1.1/30"
       ],
       "mtu": 9000,
       "auto_route": true,
       "sniff": true,
-      "sniff_override_destination": true,
+      "sniff_override_destination": false,
       "stack": "system",
       "tag": "tun-in",
       "type": "tun"
     },
     {
       "domain_strategy": "",
-      "listen": "127.0.0.1",
-      "listen_port": 1080,
+      "listen": "0.0.0.0",
+      "listen_port": 2080,
       "sniff": true,
-      "sniff_override_destination": true,
+      "sniff_override_destination": false,
       "tag": "mixed-in",
       "type": "mixed"
     }
@@ -1082,50 +1060,6 @@
         "outbound": "dns-out"
       },
       {
-        "network": [
-          "udp"
-        ],
-        "outbound": "block",
-        "port": [
-          443
-        ],
-        "port_range": []
-      },
-      {
-        "geosite": [
-          "category-ads-all"
-        ],
-        "outbound": "block"
-      },
-      {
-        "domain_suffix": [
-          "appcenter.ms",
-          "app-measurement.com",
-          "firebase.io",
-          "crashlytics.com",
-          "google-analytics.com"
-        ],
-        "outbound": "block"
-      },
-      {
-        "domain_suffix": [
-          "googleapis.cn"
-        ],
-        "outbound": "proxy"
-      },
-      {
-        "geosite": [
-          "cn"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "geoip": [
-          "cn"
-        ],
-        "outbound": "bypass"
-      },
-      {
         "geosite": [
           "ir"
         ],
@@ -1140,35 +1074,11 @@
         "outbound": "bypass"
       },
       {
-        "geoip": [
-          "phishing",
-          "malware"
-        ],
-        "outbound": "block"
-      },
-      {
-        "geoip": [
-          "cryptominers"
-        ],
-        "outbound": "block"
-      },
-      {
         "domain_suffix": [
           "cloudflare.com",
           ".ir"
         ],
         "outbound": "bypass"
-      },
-      {
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "block",
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ]
       }
     ]
   }
