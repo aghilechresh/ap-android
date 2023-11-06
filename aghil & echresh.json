@@ -6,7 +6,7 @@
     "servers": [
       {
         "tag": "dns-remote",
-        "address": "1.1.1.1",
+        "address": "tcp://1.1.1.1",
         "address_resolver": "dns-direct",
         "strategy": "prefer_ipv4"
       },
@@ -35,17 +35,35 @@
       "tag": "dns-in",
       "listen": "0.0.0.0",
       "listen_port": 1818,
-      "override_address": "127.0.0.1",
-      "override_port": 1818
+      "override_address": "8.8.8.8",
+      "override_port": 53
     },
     {
       "type": "tun",
       "tag": "tun-in",
       "mtu": 9000,
-      "inet4_address": "192.168.0.1/30",
+      "inet4_address": "10.5.0.2/16",
+      "inet6_address": "2001:0000::/23",
       "auto_route": true,
       "stack": "system",
-      "sniff": true
+      "sniff": true,
+      "inet4_route_address": [
+        "128.0.0.0/1",
+        "0.0.0.0/1"
+      ],
+      "interface_name": "tun0",
+      "strict_route": true,
+      "inet6_route_address": [
+        "::/1",
+        "8000::/1"
+      ],
+      "include_interface": [
+        "lan0"
+      ],
+      "endpoint_independent_nat": true,
+      "exclude_interface": [
+        "lan1"
+      ]
     },
     {
       "type": "mixed",
