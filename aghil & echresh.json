@@ -6,13 +6,13 @@
     "servers": [
       {
         "tag": "dns-remote",
-        "address": "tcp://77.88.8.8",
+        "address": "1.1.1.1",
         "address_resolver": "dns-direct",
         "strategy": "prefer_ipv4"
       },
       {
         "tag": "dns-direct",
-        "address": "tcp://8.8.8.8",
+        "address": "local",
         "address_resolver": "dns-local",
         "strategy": "prefer_ipv4",
         "detour": "direct"
@@ -27,16 +27,16 @@
         "address": "rcode://success"
       }
     ],
-    "independent_cache": false
+    "independent_cache": true
   },
   "inbounds": [
     {
       "type": "direct",
       "tag": "dns-in",
-      "listen": "127.0.0.1",
+      "listen": "0.0.0.0",
       "listen_port": 1818,
-      "override_address": "192.168.0.2",
-      "override_port": 53
+      "override_address": "127.0.0.1",
+      "override_port": 1818
     },
     {
       "type": "tun",
@@ -50,7 +50,7 @@
     {
       "type": "mixed",
       "tag": "mixed-in",
-      "listen": "127.0.0.1",
+      "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true
     }
@@ -60,15 +60,10 @@
       "type": "selector",
       "tag": "proxy",
       "outbounds": [
-        "United States-6",
         "url-test",
-        "United States-7",
-        "United States-8",
-        "United States-2",
         "United States-18",
         "127.0.0.1:1818",
         "127.0.0.1:1818-1",
-        "United States-9",
         "Netherlands-1",
         "Germany-2",
         "Relay_🇺🇸US-🇺🇸US_72",
@@ -80,7 +75,6 @@
         "United States-21",
         "Relay_🇺🇸US-🇨🇦CA_124",
         "Relay_🇺🇸US-🇺🇸US_128",
-        "United States-3",
         "United States-12",
         "United States-13",
         "United States-22",
@@ -110,14 +104,9 @@
       "type": "urltest",
       "tag": "url-test",
       "outbounds": [
-        "United States-6",
-        "United States-7",
-        "United States-8",
-        "United States-2",
         "United States-18",
         "127.0.0.1:1818",
         "127.0.0.1:1818-1",
-        "United States-9",
         "Netherlands-1",
         "Germany-2",
         "Relay_🇺🇸US-🇺🇸US_72",
@@ -129,7 +118,6 @@
         "United States-21",
         "Relay_🇺🇸US-🇨🇦CA_124",
         "Relay_🇺🇸US-🇺🇸US_128",
-        "United States-3",
         "United States-12",
         "United States-13",
         "United States-22",
@@ -291,36 +279,6 @@
     },
     {
       "type": "vmess",
-      "tag": "United States-2",
-      "domain_strategy": "prefer_ipv4",
-      "server": "142.4.125.84",
-      "server_port": 59614,
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "security": "auto",
-      "alter_id": 64
-    },
-    {
-      "type": "vmess",
-      "tag": "United States-3",
-      "domain_strategy": "prefer_ipv4",
-      "server": "104.21.75.246",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "cf.tonyluk.link"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/ophelia.mom:443/linkvws",
-        "headers": {
-          "Host": "cf.tonyluk.link"
-        }
-      }
-    },
-    {
-      "type": "vmess",
       "tag": "United States-4",
       "domain_strategy": "prefer_ipv4",
       "server": "104.16.67.38",
@@ -392,88 +350,6 @@
       "security": "auto",
       "tls": {
         "enabled": true
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "United States-6",
-      "domain_strategy": "prefer_ipv4",
-      "server": "38.26.135.25",
-      "server_port": 30000,
-      "uuid": "418048af-a293-4b99-9b0c-98ca3580dd24",
-      "security": "auto",
-      "alter_id": 64,
-      "tls": {
-        "enabled": true,
-        "server_name": "www.39838266.xyz"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/path/1698153002500",
-        "headers": {
-          "Host": "www.39838266.xyz"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "United States-7",
-      "domain_strategy": "prefer_ipv4",
-      "server": "172.67.215.202",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "security": "auto",
-      "alter_id": 1,
-      "tls": {
-        "enabled": true,
-        "server_name": "octavi.cfd"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "linkvws",
-        "headers": {
-          "Host": "octavi.cfd"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "United States-8",
-      "domain_strategy": "prefer_ipv4",
-      "server": "172.67.187.30",
-      "server_port": 8443,
-      "uuid": "865897ad-8d07-4021-b7c3-d8eb4a29ee8d",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "brcf.duaaoped.xyz"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "/xtsmol",
-        "headers": {
-          "Host": "brcf.duaaoped.xyz"
-        }
-      }
-    },
-    {
-      "type": "vmess",
-      "tag": "United States-9",
-      "domain_strategy": "prefer_ipv4",
-      "server": "162.159.130.234",
-      "server_port": 443,
-      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
-      "security": "auto",
-      "tls": {
-        "enabled": true,
-        "server_name": "octavi.cfd"
-      },
-      "transport": {
-        "type": "ws",
-        "path": "linkvws",
-        "headers": {
-          "Host": "octavi.cfd"
-        }
       }
     },
     {
