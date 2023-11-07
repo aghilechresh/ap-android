@@ -108,7 +108,9 @@
       },
       {
         "domain_suffix": [
-          "ir"
+          "irancell.ir",
+          "appcenter.ms",
+          "cloudflare.com"
         ],
         "outbound": "bypass"
       },
