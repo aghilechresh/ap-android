@@ -14,7 +14,7 @@
   "dns": {
     "servers": [
       {
-        "address": "tcp://1.1.1.1",
+        "address": "https://dns.bitdefender.net/dns-query",
         "address_resolver": "dns-local",
         "strategy": "prefer_ipv4",
         "tag": "dns-remote",
@@ -28,6 +28,13 @@
       {
         "address": "rcode://success",
         "tag": "dns-block"
+      },
+      {
+        "address": "https://dns.bitdefender.net/dns-query",
+        "address_resolver": "dns-local",
+        "detour": "direct",
+        "strategy": "ipv4_only",
+        "tag": "dns-direct"
       }
     ],
     "rules": [
@@ -36,7 +43,11 @@
           "admin.shahab404.top",
           "github.com",
           "githubusercontent.com",
-          "admin.shahab404.top"
+          "admin.shahab404.top",
+          "odelia.autos",
+          "104.16.67.38",
+          "brcf.duaaoped.xyz",
+          "speed.cloudflare.com"
         ],
         "server": "dns-local"
       },
