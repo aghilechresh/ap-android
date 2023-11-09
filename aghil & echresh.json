@@ -890,6 +890,14 @@
         "outbound": "bypass"
       },
       {
+        "domain_suffix": [
+          "googleads.g.doubleclick.net",
+          "doubleclick.net",
+          "crashlytics.com"
+        ],
+        "outbound": "block"
+      },
+      {
         "geoip": [
           "ir",
           "cn"
