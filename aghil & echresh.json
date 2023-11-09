@@ -928,7 +928,33 @@
           "224.0.0.0/3",
           "ff00::/8"
         ]
+      },
+      {
+        "geosite": [
+          "category-ads-all",
+          "malware",
+          "phishing",
+          "cryptominers"
+        ],
+        "outbound": "block"
+      },
+      {
+        "geosite": [
+          "category-ads-all",
+          "malware",
+          "phishing",
+          "cryptominers"
+        ],
+        "outbound": "block"
       }
-    ]
+    ],
+    "geosite": {
+      "path": "iran-geosite.db",
+      "download_url": "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran-geosite.db"
+    },
+    "GeoSite": {
+      "path": "geosite-lite.db",
+      "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geosite-lite.db"
+    }
   }
 }
