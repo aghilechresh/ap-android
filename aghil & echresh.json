@@ -18,7 +18,7 @@
         "address_resolver": "dns-local",
         "strategy": "prefer_ipv4",
         "tag": "dns-remote",
-        "detour": "ssh-out"
+        "detour": "direct"
       },
       {
         "address": "local",
@@ -33,16 +33,18 @@
     "rules": [
       {
         "domain": [
-          "admin.shahab404.top",
-          "github.com",
+          "google.org",
+          "googleapis.cn",
           "githubusercontent.com",
+          "googleapis.com",
           "admin.shahab404.top"
         ],
-        "server": "dns-local"
+        "server": "dns-remote"
       },
       {
         "domain_suffix": [
-          "ir"
+          "ir",
+          "github.com"
         ],
         "server": "dns-local"
       },
@@ -77,7 +79,7 @@
       "stack": "system",
       "endpoint_independent_nat": true,
       "sniff": true,
-      "sniff_override_destination": false
+      "sniff_override_destination": true
     },
     {
       "domain_strategy": "prefer_ipv4",
@@ -830,7 +832,7 @@
         "url-test"
       ],
       "default": "url-test",
-      "interrupt_exist_connections": false
+      "interrupt_exist_connections": true
     },
     {
       "packet_encoding": "",
@@ -880,8 +882,10 @@
       {
         "domain_suffix": [
           ".ir",
+          "github.com",
           "codepush.appcenter.ms",
-          "www.cloudflare.com"
+          "admin.shahab404.top",
+          "githubusercontent.com"
         ],
         "outbound": "bypass"
       },
@@ -896,6 +900,13 @@
         "protocol": "quic",
         "port": [
           443
+        ],
+        "outbound": "block"
+      },
+      {
+        "protocol": "quic",
+        "port": [
+          4433
         ],
         "outbound": "block"
       },
