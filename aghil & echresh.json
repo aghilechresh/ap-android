@@ -882,11 +882,11 @@
       {
         "domain_suffix": [
           ".ir",
-          "github",
-          "cloudflare",
+          "github.com",
+          "cloudflare.com",
           "codepush.appcenter.ms",
           "admin.shahab404.top",
-          "githubusercontent"
+          "githubusercontent.com"
         ],
         "outbound": "bypass"
       },
