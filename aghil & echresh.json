@@ -39,11 +39,12 @@
           "googleapis.com",
           "admin.shahab404.top"
         ],
-        "server": "dns-remote"
+        "server": "dns-local"
       },
       {
         "domain_suffix": [
           "ir",
+          "redirector.googlevideo.com",
           "github.com"
         ],
         "server": "dns-local"
@@ -137,9 +138,9 @@
         "Germany-3"
       ],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "60s",
+      "interval": "3m",
       "tolerance": 5,
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": false
     },
     {
       "type": "vmess",
