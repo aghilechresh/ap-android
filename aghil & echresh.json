@@ -78,9 +78,20 @@
       "auto_route": true,
       "strict_route": true,
       "stack": "system",
-      "endpoint_independent_nat": true,
+      "endpoint_independent_nat": false,
       "sniff": true,
-      "sniff_override_destination": true
+      "sniff_override_destination": true,
+      "inet4_route_address": [
+        "0.0.0.0/1",
+        "128.0.0.0/1"
+      ],
+      "include_interface": [
+        "lan0"
+      ],
+      "inet6_route_address": [
+        "8000::/1",
+        "::/1"
+      ]
     },
     {
       "domain_strategy": "prefer_ipv4",
