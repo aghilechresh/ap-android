@@ -882,10 +882,11 @@
       {
         "domain_suffix": [
           ".ir",
-          "github.com",
+          "github",
+          "cloudflare",
           "codepush.appcenter.ms",
           "admin.shahab404.top",
-          "githubusercontent.com"
+          "githubusercontent"
         ],
         "outbound": "bypass"
       },
@@ -928,15 +929,6 @@
           "224.0.0.0/3",
           "ff00::/8"
         ]
-      },
-      {
-        "geosite": [
-          "category-ads-all",
-          "malware",
-          "phishing",
-          "cryptominers"
-        ],
-        "outbound": "block"
       },
       {
         "geosite": [
