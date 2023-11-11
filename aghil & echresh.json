@@ -6,7 +6,12 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "127.0.0.1:9090",
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "yacd",
+      "external_ui_download_url": "https:\/\/github.com\/MetaCubeX\/Yacd-meta\/archive\/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "secret": "",
+      "default_mode": "rule",
       "store_selected": true,
       "cache_file": "clash.db"
     }
@@ -91,6 +96,18 @@
       "inet6_route_address": [
         "8000::/1",
         "::/1"
+      ],
+      "exclude_interface": [
+        "lan1"
+      ],
+      "inet4_route_exclude_address": [
+        "192.168.0.0/16"
+      ],
+      "inet6_route_exclude_address": [
+        "fc00::/7"
+      ],
+      "inet6_address": [
+        "fdfe:dcba:9876::1/126"
       ]
     },
     {
@@ -98,7 +115,7 @@
       "listen": "127.0.0.1",
       "listen_port": 2080,
       "sniff": true,
-      "sniff_override_destination": false,
+      "sniff_override_destination": true,
       "tag": "mixed-in",
       "type": "mixed"
     }
@@ -148,8 +165,8 @@
         "India",
         "Germany-3"
       ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "3m",
+      "url": "https:\/\/detectportal.firefox.com\/success.txt",
+      "interval": "1m0s",
       "tolerance": 5,
       "interrupt_exist_connections": false
     },
@@ -841,7 +858,8 @@
       "type": "selector",
       "tag": "select",
       "outbounds": [
-        "url-test"
+        "url-test",
+        "direct"
       ],
       "default": "url-test",
       "interrupt_exist_connections": true
@@ -908,7 +926,7 @@
           "doubleclick.net",
           "crashlytics.com"
         ],
-        "outbound": "block"
+        "outbound": "select"
       },
       {
         "geoip": [
@@ -922,21 +940,21 @@
         "port": [
           443
         ],
-        "outbound": "block"
+        "outbound": "select"
       },
       {
         "protocol": "quic",
         "port": [
           4433
         ],
-        "outbound": "block"
+        "outbound": "select"
       },
       {
         "ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
         ],
-        "outbound": "block",
+        "outbound": "select",
         "source_ip_cidr": [
           "224.0.0.0/3",
           "ff00::/8"
@@ -949,16 +967,16 @@
           "phishing",
           "cryptominers"
         ],
-        "outbound": "block"
+        "outbound": "select"
       }
     ],
-    "geosite": {
-      "path": "iran-geosite.db",
-      "download_url": "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran-geosite.db"
+    "geoip": {
+      "download_url": "https:\/\/github.com\/MiSaturo\/sing-box-geoip-ir\/releases\/latest\/download\/geoip.db",
+      "download_detour": "direct"
     },
-    "GeoSite": {
-      "path": "geosite-lite.db",
-      "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geosite-lite.db"
+    "geosite": {
+      "download_url": "https:\/\/github.com\/MasterKia\/iran-hosted-domains\/releases\/latest\/download\/iran-geosite.db",
+      "download_detour": "direct"
     }
   }
 }
