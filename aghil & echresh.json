@@ -2,16 +2,11 @@
   "log": {
     "disabled": false,
     "level": "warn",
-    "timestamp": false
+    "timestamp": true
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "yacd",
-      "external_ui_download_url": "https:\/\/github.com\/MetaCubeX\/Yacd-meta\/archive\/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "secret": "",
-      "default_mode": "rule",
+      "external_controller": "127.0.0.1:9090",
       "store_selected": true,
       "cache_file": "clash.db"
     }
@@ -19,44 +14,20 @@
   "dns": {
     "servers": [
       {
-        "address": "tcp://1.1.1.1",
-        "address_resolver": "dns-local",
+        "address": "tcp://1.0.0.1",
+        "address_resolver": "dns-direct",
         "strategy": "prefer_ipv4",
         "tag": "dns-remote",
         "detour": "direct"
       },
       {
         "address": "local",
-        "detour": "direct",
-        "tag": "dns-local"
+        "detour": "local",
+        "tag": "dns-direct"
       },
       {
         "address": "rcode://success",
         "tag": "dns-block"
-      }
-    ],
-    "rules": [
-      {
-        "domain": [
-          "google.org",
-          "googleapis.cn",
-          "githubusercontent.com",
-          "googleapis.com",
-          "admin.shahab404.top"
-        ],
-        "server": "dns-local"
-      },
-      {
-        "domain_suffix": [
-          "ir",
-          "redirector.googlevideo.com",
-          "github.com"
-        ],
-        "server": "dns-local"
-      },
-      {
-        "outbound": "direct",
-        "server": "dns-local"
       }
     ],
     "final": "dns-remote",
@@ -66,7 +37,7 @@
   },
   "inbounds": [
     {
-      "listen": "127.0.0.1",
+      "listen": "0.0.0.0",
       "listen_port": 6450,
       "override_address": "8.8.8.8",
       "override_port": 53,
@@ -76,46 +47,36 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "domain_strategy": "prefer_ipv4",
+      "domain_strategy": "",
       "interface_name": "tun0",
       "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
       "stack": "system",
-      "endpoint_independent_nat": false,
+      "endpoint_independent_nat": true,
       "sniff": true,
-      "sniff_override_destination": true,
+      "sniff_override_destination": false,
       "inet4_route_address": [
         "0.0.0.0/1",
-        "128.0.0.0/1"
+        "128.0.0.0/1",
+        "8.8.8.0/24"
       ],
       "include_interface": [
         "lan0"
       ],
       "inet6_route_address": [
         "8000::/1",
-        "::/1"
-      ],
-      "exclude_interface": [
-        "lan1"
-      ],
-      "inet4_route_exclude_address": [
-        "192.168.0.0/16"
-      ],
-      "inet6_route_exclude_address": [
-        "fc00::/7"
-      ],
-      "inet6_address": [
-        "fdfe:dcba:9876::1/126"
+        "::/1",
+        "ff00::/8"
       ]
     },
     {
       "domain_strategy": "prefer_ipv4",
-      "listen": "127.0.0.1",
+      "listen": "0.0.0.0",
       "listen_port": 2080,
       "sniff": true,
-      "sniff_override_destination": true,
+      "sniff_override_destination": false,
       "tag": "mixed-in",
       "type": "mixed"
     }
@@ -165,7 +126,7 @@
         "India",
         "Germany-3"
       ],
-      "url": "https:\/\/detectportal.firefox.com\/success.txt",
+      "url": "https://detectportal.firefox.com/success.txt",
       "interval": "1m0s",
       "tolerance": 5,
       "interrupt_exist_connections": false
@@ -856,13 +817,12 @@
     },
     {
       "type": "selector",
-      "tag": "select",
+      "tag": "proxy",
       "outbounds": [
         "url-test",
         "direct"
       ],
-      "default": "url-test",
-      "interrupt_exist_connections": true
+      "interrupt_exist_connections": false
     },
     {
       "packet_encoding": "",
@@ -895,7 +855,7 @@
   "route": {
     "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final": "select",
+    "final": "proxy",
     "rules": [
       {
         "outbound": "dns-out",
@@ -926,12 +886,11 @@
           "doubleclick.net",
           "crashlytics.com"
         ],
-        "outbound": "select"
+        "outbound": "bypass"
       },
       {
         "geoip": [
-          "ir",
-          "cn"
+          "ir"
         ],
         "outbound": "bypass"
       },
@@ -940,25 +899,14 @@
         "port": [
           443
         ],
-        "outbound": "select"
+        "outbound": "proxy"
       },
       {
         "protocol": "quic",
         "port": [
           4433
         ],
-        "outbound": "select"
-      },
-      {
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "select",
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ]
+        "outbound": "proxy"
       },
       {
         "geosite": [
@@ -967,16 +915,16 @@
           "phishing",
           "cryptominers"
         ],
-        "outbound": "select"
+        "outbound": "proxy"
       }
     ],
-    "geoip": {
-      "download_url": "https:\/\/github.com\/MiSaturo\/sing-box-geoip-ir\/releases\/latest\/download\/geoip.db",
-      "download_detour": "direct"
-    },
     "geosite": {
-      "download_url": "https:\/\/github.com\/MasterKia\/iran-hosted-domains\/releases\/latest\/download\/iran-geosite.db",
-      "download_detour": "direct"
+      "path": "iran-geosite.db",
+      "download_url": "https://github.com/bootmortis/iran-hosted-domains/releases/latest/download/iran-geosite.db"
+    },
+    "GeoSite": {
+      "path": "geosite-lite.db",
+      "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geosite-lite.db"
     }
   }
 }
