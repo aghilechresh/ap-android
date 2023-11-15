@@ -1,9 +1,3 @@
-//profile-title: base64:Q09OVkVSVEVEIEJZIFRWQw==
-//profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//support-url: https://t.me/v2raycollector
-//profile-web-page-url: https://github.com/yebekhe/TelegramV2rayCollector
-
 {
   "log": {
     "disabled": false,
@@ -25,16 +19,16 @@
   "dns": {
     "servers": [
       {
-        "address": "https://dns.bitdefender.net/dns-query",
+        "address": "https://1.0.0.1/dns-query",
         "address_resolver": "dns-direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-remote"
       },
       {
-        "address": "https://dns.bitdefender.net/dns-query",
+        "address": "https://free.shecan.ir/dns-query",
         "address_resolver": "dns-local",
         "detour": "direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-direct"
       },
       {
@@ -66,7 +60,7 @@
       }
     ],
     "reverse_mapping": true,
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "independent_cache": true
   },
   "inbounds": [
@@ -81,7 +75,7 @@
     {
       "type": "tun",
       "tag": "tun-in",
-      "domain_strategy": "",
+      "domain_strategy": "prefer_ipv4",
       "interface_name": "tun0",
       "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
@@ -89,14 +83,24 @@
       "strict_route": true,
       "stack": "system",
       "endpoint_independent_nat": true,
-      "sniff": true,
-      "sniff_override_destination": false
+      "sniff": false,
+      "sniff_override_destination": false,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      },
+      "inet6_address": [
+        "fdfe:dcba:9876::1/126"
+      ]
     },
     {
-      "domain_strategy": "",
+      "domain_strategy": "prefer_ipv4",
       "listen": "0.0.0.0",
       "listen_port": 2080,
-      "sniff": true,
+      "sniff": false,
       "sniff_override_destination": false,
       "tag": "mixed-in",
       "type": "mixed"
@@ -148,7 +152,7 @@
         "Germany-3"
       ],
       "url": "https://detectportal.firefox.com/success.txt",
-      "interval": "1m0s",
+      "interval": "3m",
       "tolerance": 5,
       "interrupt_exist_connections": false
     },
