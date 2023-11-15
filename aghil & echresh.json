@@ -1,9 +1,3 @@
-//profile-title: base64:VFZDIHwgVkxFU1M=
-//profile-update-interval: 1
-//subscription-userinfo: upload=0; download=0; total=10737418240000000; expire=2546249531
-//support-url: https://t.me/v2raycollector
-//profile-web-pa
-
 {
   "log": {
     "disabled": false,
@@ -5548,9 +5542,10 @@
       },
       {
         "domain_suffix": [
-          "ir"
+          ".ir",
+          "www.cloudflare.com"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "geoip": [
@@ -5558,7 +5553,7 @@
           "private",
           "arvancloud"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "geosite": [
@@ -5579,7 +5574,7 @@
         "geosite": [
           "other"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "geoip": [
