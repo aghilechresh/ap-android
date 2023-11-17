@@ -1,75 +1,4 @@
 {
-  "dns": {
-    "independent_cache": true,
-    "rules": [
-      {
-        "domain": [
-          "odelia.autos"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "disable_cache": true,
-        "geosite": [
-          "category-ads-all"
-        ],
-        "server": "dns-block"
-      },
-      {
-        "disable_cache": true,
-        "domain_suffix": [
-          "appcenter.ms",
-          "app-measurement.com",
-          "firebase.io",
-          "crashlytics.com",
-          "google-analytics.com"
-        ],
-        "server": "dns-block"
-      },
-      {
-        "geosite": [
-          "ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "domain_suffix": [
-          "www.cloudflare.com"
-        ],
-        "server": "dns-direct"
-      }
-    ],
-    "servers": [
-      {
-        "address": "1.1.1.1",
-        "address_resolver": "dns-direct",
-        "strategy": "prefer_ipv4",
-        "tag": "dns-remote"
-      },
-      {
-        "address": "8.8.8.8",
-        "address_resolver": "dns-local",
-        "detour": "direct",
-        "strategy": "prefer_ipv4",
-        "tag": "dns-direct"
-      },
-      {
-        "address": "local",
-        "detour": "direct",
-        "tag": "dns-local"
-      },
-      {
-        "address": "rcode://success",
-        "tag": "dns-block"
-      }
-    ]
-  },
   "experimental": {
     "clash_api": {
       "cache_file": "../cache/clash.db",
@@ -81,25 +10,6 @@
     "level": "warn"
   },
   "outbounds": [
-    {
-      "outbounds": [
-        "Relay_🇺🇸US-🏁ZZ_122",
-        "t.me/ConfigsHub",
-        "BY🇧🇾 | internet.life.com.by-443 | 190.36ms",
-        "🇩🇪+|+Telegram→@proxy_shadosockss",
-        "US🇺🇸 | baipiao1.curly-train.pages.dev-8443 | 1.97ms",
-        "🇺🇦UA_1025",
-        "US🇺🇸 | cf-wkrs-pages-vless-aoy.pages.dev-443 | 9.38ms",
-        "t.me/ConfigsHub-1",
-        "RELAY🚩 | sdgf.bdfstt.sbs-443 | 220.01ms",
-        "t.me/ConfigsHub-2",
-        "REALITY|DE🇩🇪 | 45.77.54.93-41777 | 155.53ms",
-        "REALITY|FI🇫🇮 | 94.237.98.54-38572 | 157.79ms",
-        "US🇺🇸 | baipiao1.curly-train.pages.dev-2096 | 3.61ms"
-      ],
-      "tag": "url-test",
-      "type": "urltest"
-    },
     {
       "alter_id": 1,
       "packet_encoding": "",
@@ -397,10 +307,42 @@
     {
       "tag": "dns-out",
       "type": "dns"
+    },
+    {
+      "tag": "URL-TEST | رایگان",
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "5m",
+      "tolerance": 50,
+      "outbounds": [
+        "Relay_🇺🇸US-🏁ZZ_122",
+        "t.me/ConfigsHub",
+        "BY🇧🇾 | internet.life.com.by-443 | 190.36ms",
+        "🇩🇪+|+Telegram→@proxy_shadosockss",
+        "US🇺🇸 | baipiao1.curly-train.pages.dev-8443 | 1.97ms",
+        "🇺🇦UA_1025",
+        "US🇺🇸 | cf-wkrs-pages-vless-aoy.pages.dev-443 | 9.38ms",
+        "t.me/ConfigsHub-1",
+        "RELAY🚩 | sdgf.bdfstt.sbs-443 | 220.01ms",
+        "t.me/ConfigsHub-2",
+        "REALITY|DE🇩🇪 | 45.77.54.93-41777 | 155.53ms",
+        "REALITY|FI🇫🇮 | 94.237.98.54-38572 | 157.79ms",
+        "US🇺🇸 | baipiao1.curly-train.pages.dev-2096 | 3.61ms"
+      ]
     }
   ],
   "route": {
     "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "final": "URL-TEST | رایگان",
+    "geoip": {
+      "download_url": "https://github.com/malikshi/sing-box-geo/releases/latest/download/geoip.db",
+      "download_detour": "direct"
+    },
+    "geosite": {
+      "download_url": "https://github.com/malikshi/v2ray-rules-dat/releases/latest/download/geosite.db",
+      "download_detour": "direct"
+    },
     "rules": [
       {
         "outbound": "dns-out",
@@ -415,23 +357,7 @@
         "outbound": "dns-out"
       },
       {
-        "geosite": [
-          "category-ads-all"
-        ],
-        "outbound": "block"
-      },
-      {
         "domain_suffix": [
-          "appcenter.ms",
-          "app-measurement.com",
-          "firebase.io",
-          "crashlytics.com",
-          "google-analytics.com"
-        ],
-        "outbound": "block"
-      },
-      {
-        "geosite": [
           "ir"
         ],
         "outbound": "bypass"
@@ -439,18 +365,6 @@
       {
         "geoip": [
           "ir"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "outbound": "bypass"
-      },
-      {
-        "domain_suffix": [
-          "www.cloudflare.com"
         ],
         "outbound": "bypass"
       },
@@ -469,53 +383,86 @@
   },
   "inbounds": [
     {
+      "sniff": true,
+      "type": "mixed",
       "listen": "127.0.0.1",
-      "listen_port": 1550,
-      "override_address": "8.8.8.8",
-      "override_port": 53,
-      "tag": "dns-in",
-      "type": "direct"
+      "listen_port": 1080
     },
     {
-      "domain_strategy": "",
-      "endpoint_independent_nat": true,
-      "inet4_address": [
-        "172.19.0.1/28"
-      ],
-      "inet6_address": [
-        "fdfe:dcba:9876::1/126"
-      ],
+      "stack": "system",
+      "auto_route": true,
+      "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
       "sniff": true,
-      "sniff_override_destination": false,
-      "stack": "mixed",
-      "tag": "tun-in",
+      "strict_route": true,
       "type": "tun",
-      "auto_route": true,
       "platform": {
         "http_proxy": {
           "enabled": true,
           "server": "127.0.0.1",
-          "server_port": 2080
+          "server_port": 1080
         }
       }
-    },
-    {
-      "domain_strategy": "",
-      "listen": "127.0.0.1",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "tag": "mixed-in",
-      "type": "mixed"
-    },
-    {
-      "listen": "127.0.0.1",
-      "listen_port": 7900,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "tag": "trans-in",
-      "type": "redirect"
     }
-  ]
+  ],
+  "dns": {
+    "servers": [
+      {
+        "tag": "proxyDns",
+        "address": "8.8.8.8",
+        "detour": "select"
+      },
+      {
+        "tag": "localDns",
+        "address": "https://223.5.5.5/dns-query",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "domain": [
+          "ghproxy.com",
+          "cdn.jsdelivr.net",
+          "testingcf.jsdelivr.net"
+        ],
+        "server": "localDns"
+      },
+      {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "server": "block"
+      },
+      {
+        "server": "localDns",
+        "outbound": "any",
+        "disable_cache": true
+      },
+      {
+        "geosite": [
+          "cn"
+        ],
+        "server": "localDns"
+      },
+      {
+        "server": "localDns",
+        "clash_mode": "direct"
+      },
+      {
+        "server": "proxyDns",
+        "clash_mode": "global"
+      },
+      {
+        "geosite": [
+          "geolocation-!cn"
+        ],
+        "server": "proxyDns"
+      }
+    ],
+    "strategy": "ipv4_only"
+  }
 }
