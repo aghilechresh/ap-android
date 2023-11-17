@@ -1,34 +1,62 @@
 {
-  "log": {
-    "disabled": false,
-    "level": "fatal",
-    "timestamp": true
-  },
-  "experimental": {
-    "clash_api": {
-      "external_controller": "0.0.0.0:9090",
-      "external_ui": "yacd",
-      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct",
-      "secret": "",
-      "default_mode": "rule",
-      "store_selected": true,
-      "cache_file": "clash.db"
-    }
-  },
   "dns": {
+    "independent_cache": true,
+    "rules": [
+      {
+        "domain": [
+          "odelia.autos"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "disable_cache": true,
+        "geosite": [
+          "category-ads-all"
+        ],
+        "server": "dns-block"
+      },
+      {
+        "disable_cache": true,
+        "domain_suffix": [
+          "appcenter.ms",
+          "app-measurement.com",
+          "firebase.io",
+          "crashlytics.com",
+          "google-analytics.com"
+        ],
+        "server": "dns-block"
+      },
+      {
+        "geosite": [
+          "ir"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "server": "dns-direct"
+      },
+      {
+        "domain_suffix": [
+          "www.cloudflare.com"
+        ],
+        "server": "dns-direct"
+      }
+    ],
     "servers": [
       {
-        "address": "tcp://95.85.95.85",
+        "address": "1.1.1.1",
         "address_resolver": "dns-direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-remote"
       },
       {
-        "address": "tcp://95.85.95.85",
+        "address": "8.8.8.8",
         "address_resolver": "dns-local",
         "detour": "direct",
-        "strategy": "ipv4_only",
+        "strategy": "prefer_ipv4",
         "tag": "dns-direct"
       },
       {
@@ -40,405 +68,319 @@
         "address": "rcode://success",
         "tag": "dns-block"
       }
-    ],
-    "rules": [
-      {
-        "domain_suffix": [
-          ".ir"
-        ],
-        "server": "dns-direct"
-      },
-      {
-        "outbound": "direct",
-        "server": "dns-direct",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "dns-direct",
-        "rewrite_ttl": 20
-      }
-    ],
-    "reverse_mapping": true,
-    "strategy": "ipv4_only",
-    "independent_cache": true
+    ]
   },
-  "inbounds": [
-    {
-      "listen": "0.0.0.0",
-      "listen_port": 6450,
-      "override_address": "8.8.8.8",
-      "override_port": 53,
-      "tag": "dns-in",
-      "type": "direct"
-    },
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "domain_strategy": "",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
-      "mtu": 9000,
-      "auto_route": true,
-      "strict_route": true,
-      "stack": "system",
-      "endpoint_independent_nat": true,
-      "sniff": true,
-      "sniff_override_destination": false
-    },
-    {
-      "domain_strategy": "",
-      "listen": "0.0.0.0",
-      "listen_port": 2080,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "tag": "mixed-in",
-      "type": "mixed"
+  "experimental": {
+    "clash_api": {
+      "cache_file": "../cache/clash.db",
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "../files/yacd"
     }
-  ],
+  },
+  "log": {
+    "level": "warn"
+  },
   "outbounds": [
     {
-      "tag": "proxy",
-      "type": "selector",
       "outbounds": [
-        "URL-TEST | رایگان",
-        "رایگان | TROJAN | @iP_CF | IT🇮🇹 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @iP_CF | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | GB🇬🇧 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣3️⃣",
-        "رایگان | TROJAN | @DirectVPN | IE🇮🇪 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @DirectVPN | GB🇬🇧 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @DirectVPN | FR🇫🇷 | 0️⃣3️⃣",
-        "رایگان | TROJAN | @oneclickvpnkeys | KR🇰🇷 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @oneclickvpnkeys | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @VmessProtocol | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣2️⃣"
-      ]
-    },
-    {
-      "tag": "URL-TEST | رایگان",
-      "type": "urltest",
-      "outbounds": [
-        "رایگان | TROJAN | @iP_CF | IT🇮🇹 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @iP_CF | RELAY🚩 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | GB🇬🇧 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣3️⃣",
-        "رایگان | TROJAN | @DirectVPN | IE🇮🇪 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @DirectVPN | GB🇬🇧 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @DirectVPN | FR🇫🇷 | 0️⃣3️⃣",
-        "رایگان | TROJAN | @oneclickvpnkeys | KR🇰🇷 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @oneclickvpnkeys | US🇺🇸 | 0️⃣2️⃣",
-        "رایگان | TROJAN | @VmessProtocol | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣1️⃣",
-        "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣2️⃣"
+        "Relay_🇺🇸US-🏁ZZ_122",
+        "t.me/ConfigsHub",
+        "BY🇧🇾 | internet.life.com.by-443 | 190.36ms",
+        "🇩🇪+|+Telegram→@proxy_shadosockss",
+        "US🇺🇸 | baipiao1.curly-train.pages.dev-8443 | 1.97ms",
+        "🇺🇦UA_1025",
+        "US🇺🇸 | cf-wkrs-pages-vless-aoy.pages.dev-443 | 9.38ms",
+        "t.me/ConfigsHub-1",
+        "RELAY🚩 | sdgf.bdfstt.sbs-443 | 220.01ms",
+        "t.me/ConfigsHub-2",
+        "REALITY|DE🇩🇪 | 45.77.54.93-41777 | 155.53ms",
+        "REALITY|FI🇫🇮 | 94.237.98.54-38572 | 157.79ms",
+        "US🇺🇸 | baipiao1.curly-train.pages.dev-2096 | 3.61ms"
       ],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "5m",
-      "tolerance": 50
+      "tag": "url-test",
+      "type": "urltest"
     },
     {
-      "tag": "رایگان | TROJAN | @iP_CF | IT🇮🇹 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "15.160.138.221",
+      "alter_id": 1,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "odelia.autos",
       "server_port": 443,
-      "password": "your_password",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
       "tls": {
         "enabled": true,
-        "server_name": "aws-it-milan-1.f1rocketnode.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @iP_CF | RELAY🚩 | 0️⃣2️⃣",
-      "type": "trojan",
-      "server": "aws-ge-frankfurt-1.f1cflinea.com",
-      "server_port": 443,
-      "password": "your_password",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "aws-ge-frankfurt-1.f1cflinea.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "insecure": false
       },
       "transport": {
-        "type": "ws",
-        "path": "/f1rocket",
+        "headers": {},
+        "path": "linkvws",
+        "type": "ws"
+      },
+      "uuid": "03fcc618-b93d-6796-6aed-8a38c975d581",
+      "type": "vmess",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "Relay_🇺🇸US-🏁ZZ_122"
+    },
+    {
+      "packet_encoding": "",
+      "server": "188.114.97.3",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
         "headers": {
-          "Host": "aws-ge-frankfurt-1.f1cflinea.com"
-        }
-      }
+          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "t.me/ConfigsHub"
     },
     {
-      "tag": "رایگان | TROJAN | @PrivateVPNs | GB🇬🇧 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "35.178.115.201",
-      "server_port": 22222,
-      "password": "telegram-id-privatevpns",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣2️⃣",
-      "type": "trojan",
-      "server": "13.38.149.200",
-      "server_port": 22222,
-      "password": "telegram-id-privatevpns",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @PrivateVPNs | FR🇫🇷 | 0️⃣3️⃣",
-      "type": "trojan",
-      "server": "13.38.146.176",
-      "server_port": 22222,
-      "password": "telegram-id-privatevpns",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @DirectVPN | IE🇮🇪 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "52.48.202.143",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @DirectVPN | GB🇬🇧 | 0️⃣2️⃣",
-      "type": "trojan",
-      "server": "13.43.32.69",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @DirectVPN | FR🇫🇷 | 0️⃣3️⃣",
-      "type": "trojan",
-      "server": "13.39.138.188",
-      "server_port": 22222,
-      "password": "telegram-id-directvpn",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "trj.rollingnext.co.uk",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @oneclickvpnkeys | KR🇰🇷 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "foreign04.lovehjq.xyz",
-      "server_port": 46527,
-      "password": "09833a6f-4d46-426e-87fe-7793a5489f84",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "lovehjq.xyz",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @oneclickvpnkeys | US🇺🇸 | 0️⃣2️⃣",
-      "type": "trojan",
-      "server": "47.76.34.107",
-      "server_port": 443,
-      "password": "6a96b7c2-c918-3bb6-94b5-9861d13f9a00",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "xg107.npv4.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      }
-    },
-    {
-      "tag": "رایگان | TROJAN | @VmessProtocol | US🇺🇸 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "aws-ar-buenosaires-1.f1cflineb.com",
-      "server_port": 443,
-      "password": "your_password",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "aws-ar-buenosaires-1.f1cflineb.com",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
+      "packet_encoding": "",
+      "server": "172.67.26.210",
+      "server_port": 80,
       "transport": {
-        "type": "ws",
-        "path": "/f1rocket",
         "headers": {
-          "Host": "aws-ar-buenosaires-1.f1cflineb.com"
-        }
-      }
+          "Host": "tOP.amoOZesHgAH-pc.Com"
+        },
+        "path": "/backup",
+        "type": "ws"
+      },
+      "uuid": "26a2fcaa-9694-428d-8bcd-e6f3bb21e86e",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "🇩🇪+|+Telegram→@proxy_shadosockss"
     },
     {
-      "tag": "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣1️⃣",
-      "type": "trojan",
-      "server": "cdn.proxystore11.site",
-      "server_port": 2083,
-      "password": "VnQFHKa2pj",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
-      "tls": {
-        "enabled": true,
-        "server_name": "cdn.proxystore11.site",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
-      },
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "95.164.62.204",
+      "server_port": 80,
       "transport": {
-        "type": "grpc",
-        "service_name": "‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11",
-        "idle_timeout": "15s",
-        "ping_timeout": "15s",
-        "permit_without_stream": false
-      }
+        "headers": {
+          "Host": "be1.xv2ray.net"
+        },
+        "path": "/vmess",
+        "type": "ws"
+      },
+      "uuid": "2ba1c86f-789f-4dd8-b52a-17d21164f2ba",
+      "type": "vmess",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "🇺🇦UA_1025"
     },
     {
-      "tag": "رایگان | TROJAN | @proxystore11 | US🇺🇸 | 0️⃣2️⃣",
-      "type": "trojan",
-      "server": "cdn.proxystore11.site",
-      "server_port": 2083,
-      "password": "Qk5naxAaTd",
-      "multiplex": {
-        "enabled": false,
-        "protocol": "smux",
-        "max_streams": 32
-      },
+      "packet_encoding": "",
+      "server": "172.67.139.111",
+      "server_port": 8443,
       "tls": {
         "enabled": true,
-        "server_name": "cdn.proxystore11.site",
-        "insecure": true,
-        "utls": {
-          "enabled": true,
-          "fingerprint": "chrome"
-        }
+        "insecure": false,
+        "server_name": "baipiao1.curly-train.pages.dev"
       },
       "transport": {
-        "type": "grpc",
-        "service_name": "‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11 ‌proxystore11",
-        "idle_timeout": "15s",
-        "ping_timeout": "15s",
-        "permit_without_stream": false
-      }
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "baipiao1.curly-train.pages.dev"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "t.me/ConfigsHub-1"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.18.210.98",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "current.iraniancp.click"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "current.iraniancp.click"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "6e34f2c5-6c71-4010-c292-10d05ef4a9a2",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "t.me/ConfigsHub-2"
+    },
+    {
+      "alter_id": 0,
+      "packet_encoding": "",
+      "security": "auto",
+      "server": "135.125.135.41",
+      "server_port": 443,
+      "transport": {
+        "host": [
+          "internet.life.com.by"
+        ],
+        "method": "GET",
+        "path": "/",
+        "type": "http"
+      },
+      "uuid": "0d16efe1-cb91-45ba-914f-25047a51f4e7",
+      "type": "vmess",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "BY🇧🇾 | internet.life.com.by-443 | 190.36ms"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.31.16.6",
+      "server_port": 8443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "baipiao1.curly-train.pages.dev"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "baipiao1.curly-train.pages.dev"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "US🇺🇸 | baipiao1.curly-train.pages.dev-8443 | 1.97ms"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.22.13.192",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "cf-wkrs-pages-vless-aoy.pages.dev"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "cf-wkrs-pages-vless-aoy.pages.dev"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "884f9b2c-f0c5-44dd-a68e-3e39ce93bb39",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "US🇺🇸 | cf-wkrs-pages-vless-aoy.pages.dev-443 | 9.38ms"
+    },
+    {
+      "packet_encoding": "",
+      "server": "172.67.194.57",
+      "server_port": 443,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "sdgf.bdfstt.sbs"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "sdgf.bdfstt.sbs"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "e28bb3f8-e64a-4419-9496-33c46220354b",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "RELAY🚩 | sdgf.bdfstt.sbs-443 | 220.01ms"
+    },
+    {
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "",
+      "server": "45.77.54.93",
+      "server_port": 41777,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "5ze_mwm3YxTOav0WHDmC99dATftDm8UxOH4lF_vLE2U",
+          "short_id": "d06c87aa"
+        },
+        "server_name": "discord.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "uuid": "c86dd833-c086-433a-91cd-d4ca0ce1cb0c",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "REALITY|DE🇩🇪 | 45.77.54.93-41777 | 155.53ms"
+    },
+    {
+      "flow": "xtls-rprx-vision",
+      "packet_encoding": "",
+      "server": "94.237.98.54",
+      "server_port": 38572,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "reality": {
+          "enabled": true,
+          "public_key": "-YbXHA19jIRONC2mtwK7Xv-yNSgkUGdyLMjUsGa5_B0",
+          "short_id": "265d2ae2"
+        },
+        "server_name": "discord.com",
+        "utls": {
+          "enabled": true,
+          "fingerprint": "firefox"
+        }
+      },
+      "uuid": "f1eefba6-249e-416d-8b9a-6bb7d2898e4e",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "REALITY|FI🇫🇮 | 94.237.98.54-38572 | 157.79ms"
+    },
+    {
+      "packet_encoding": "",
+      "server": "104.19.19.58",
+      "server_port": 2096,
+      "tls": {
+        "enabled": true,
+        "insecure": false,
+        "server_name": "baipiao1.curly-train.pages.dev"
+      },
+      "transport": {
+        "early_data_header_name": "Sec-WebSocket-Protocol",
+        "headers": {
+          "Host": "baipiao1.curly-train.pages.dev"
+        },
+        "max_early_data": 2048,
+        "path": "/",
+        "type": "ws"
+      },
+      "uuid": "d342d11e-d424-4583-b36e-524ab1f0afa4",
+      "type": "vless",
+      "domain_strategy": "prefer_ipv4",
+      "tag": "US🇺🇸 | baipiao1.curly-train.pages.dev-2096 | 3.61ms"
     },
     {
       "tag": "direct",
@@ -459,16 +401,6 @@
   ],
   "route": {
     "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "proxy",
-    "geoip": {
-      "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geoip.db",
-      "download_detour": "direct"
-    },
-    "geosite": {
-      "download_url": "https://github.com/chocolate4u/Iran-sing-box-rules/releases/latest/download/geosite.db",
-      "download_detour": "direct"
-    },
     "rules": [
       {
         "outbound": "dns-out",
@@ -483,46 +415,44 @@
         "outbound": "dns-out"
       },
       {
+        "geosite": [
+          "category-ads-all"
+        ],
+        "outbound": "block"
+      },
+      {
         "domain_suffix": [
-          "ir"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "geoip": [
-          "ir",
-          "private",
-          "arvancloud"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "geosite": [
-          "ir"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "geosite": [
-          "geosite:category-ads-all",
-          "malware",
-          "phishing",
-          "cryptominers"
+          "appcenter.ms",
+          "app-measurement.com",
+          "firebase.io",
+          "crashlytics.com",
+          "google-analytics.com"
         ],
         "outbound": "block"
       },
       {
         "geosite": [
-          "other"
+          "ir"
         ],
-        "outbound": "direct"
+        "outbound": "bypass"
       },
       {
         "geoip": [
-          "malware",
-          "phishing"
+          "ir"
         ],
-        "outbound": "block"
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          ".ir"
+        ],
+        "outbound": "bypass"
+      },
+      {
+        "domain_suffix": [
+          "www.cloudflare.com"
+        ],
+        "outbound": "bypass"
       },
       {
         "ip_cidr": [
@@ -536,5 +466,56 @@
         ]
       }
     ]
-  }
+  },
+  "inbounds": [
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 1550,
+      "override_address": "8.8.8.8",
+      "override_port": 53,
+      "tag": "dns-in",
+      "type": "direct"
+    },
+    {
+      "domain_strategy": "",
+      "endpoint_independent_nat": true,
+      "inet4_address": [
+        "172.19.0.1/28"
+      ],
+      "inet6_address": [
+        "fdfe:dcba:9876::1/126"
+      ],
+      "mtu": 9000,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "stack": "mixed",
+      "tag": "tun-in",
+      "type": "tun",
+      "auto_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": true,
+          "server": "127.0.0.1",
+          "server_port": 2080
+        }
+      }
+    },
+    {
+      "domain_strategy": "",
+      "listen": "127.0.0.1",
+      "listen_port": 2080,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "tag": "mixed-in",
+      "type": "mixed"
+    },
+    {
+      "listen": "127.0.0.1",
+      "listen_port": 7900,
+      "sniff": true,
+      "sniff_override_destination": false,
+      "tag": "trans-in",
+      "type": "redirect"
+    }
+  ]
 }
